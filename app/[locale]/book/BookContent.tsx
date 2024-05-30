@@ -1,19 +1,22 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, createRef } from 'react';
 import './content.css';
 import { useDimensions } from '@/components/useDimensions';
 import { useWindowDimensions } from '@/components/useWindowDimensions';
 import BlockList from './BlockList';
+import {
+	highlightedData,
+	noteData,
+	HighLightType,
+	NoteType,
+} from '@/app/mockData/bookContent';
 
-export type HighLightType = {
-	blkId: number;
-	stcId: number;
-	color?: string;
-};
 export default function Content() {
 	const [currentPage, setCurrentPage] = useState(0);
-	const [highlighted, updateHighlighted] = useState<HighLightType[]>([]);
+	const [highlighted, updateHighlighted] =
+		useState<HighLightType[]>(highlightedData);
+
 	const ref = useRef(null);
 	const { width, height: totalHeight } = useDimensions(ref);
 	const { height: windowHeight } = useWindowDimensions();
@@ -24,12 +27,16 @@ export default function Content() {
 	const handleUpdateHL = (data: HighLightType) => {
 		updateHighlighted([...highlighted, data]);
 	};
+
+	const noteRefs = noteData.map((d) => createRef<HTMLDivElement>());
+	console.log(noteRefs);
 	return (
 		<div className="w-full relative">
 			<div ref={ref} className="absolute invisible">
 				<BlockList
+					noted={[]}
 					updateHighlighted={handleUpdateHL}
-					highlighted={highlighted}
+					highlighted={[]}
 				/>
 			</div>
 			<div
@@ -49,6 +56,8 @@ export default function Content() {
 					}}
 				>
 					<BlockList
+						noted={noteData}
+						noteRefs={noteRefs}
 						updateHighlighted={handleUpdateHL}
 						highlighted={highlighted}
 					/>
