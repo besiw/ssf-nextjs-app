@@ -1,9 +1,9 @@
 import { contentData } from '@/app/mockData.js/bookContent';
 
-type BlocklistProps = {
+type SidebarTitleProps = {
 	title?:string
 }
-const BlockList:React.FC<BlocklistProps> = ({title})=> {
+const SidebarTitle:React.FC<SidebarTitleProps> = ({title})=> {
 	return (
 		<>
 			<div className="flex text-13 mt-2 mb-4 pt-7 dark:text-white-warm ">
@@ -15,4 +15,4 @@ const BlockList:React.FC<BlocklistProps> = ({title})=> {
 		</>
 	);
 }
-export default BlockList
+export default SidebarTitle

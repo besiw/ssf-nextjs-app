@@ -8,6 +8,7 @@ import  './Sidebar/Sidebar.css';
 
 import Image from 'next/image';
 import SidebarTitle from './Sidebar/SidebarTitle';
+import SidebarButton from './Sidebar/SidebarButton';
 export default function Sidebar() {
 	const {
 		formState: { errors },
@@ -67,7 +68,7 @@ export default function Sidebar() {
 					/>
 				</div>
 				<div className=" text-sm my-4 flex justify-between">
-					Auther
+					Author
 					<Image className='chevronUp' src={chevronUp} alt={'chevronUp'}/>
 				</div>
 				<div className="flex h-11 items-center bg-white mb-5 rounded-md">
@@ -79,62 +80,65 @@ export default function Sidebar() {
 						placeholder="Search by author"
 					/>
 				</div>
-				<div className="filter w-full overflow-y-scroll h-272 flex items-start flex-col">
-					<div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div><div>
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
+				<div className=' py-3 pl-2 pr-5 bg-white rounded-md'>
+					<div className="filter w-full overflow-y-scroll h-272 flex items-start flex-col ">
+						<div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div>
+						<div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div><div>
+							<input type="checkbox" className="mr-5" />
+							Auther
+							<br />
+						</div>
 					</div>
 				</div>
+				<SidebarButton buttonBody="Reset"/>
 		</form>
 	);
 }

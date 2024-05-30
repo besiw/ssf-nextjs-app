@@ -31,3 +31,13 @@ body {
 		text-wrap: balance;
 	}
 }
+::-webkit-scrollbar {
+    width: 6px;
+	background-color: rgba(242, 138, 93,0.12);
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  /*滚动条颜色*/
+  background-color: #F28A5D;
+  --webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+  }
