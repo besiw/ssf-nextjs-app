@@ -3,6 +3,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './Sidebar.module.css';
+import xCircle from '@/assets/svg/xCircle-light-bg-square-PrimaryColor.svg';
+import barChart from '@/assets/svg/chartbar-outline-PrimaryColor.svg';
+import search from '@/assets/svg/search-outline-PrimaryColor.svg';
+import chevronUp from '@/assets/svg/chevronUp-outline-PrimaryColor.svg';
+
 
 export default function Sidebar() {
 	const {
@@ -15,28 +20,7 @@ export default function Sidebar() {
 		<div>
 			<div className="filter w-screen flex justify-end md:w-1/3">
 				<div className=" w-9 h-9 bg-gray-550 rounded-r-3xl flex items-center justify-center md:hidden">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-					>
-						<path
-							stroke="rgba(0, 0, 0, 1)"
-							strokeWidth="2"
-							strokeLinejoin="round"
-							strokeLinecap="round"
-							d="M18 6L6 18"
-						></path>
-						<path
-							stroke="rgba(0, 0, 0, 1)"
-							strokeWidth="2"
-							strokeLinejoin="round"
-							strokeLinecap="round"
-							d="M6 6L18 18"
-						></path>
-					</svg>
+					<image className='filter-light-bg-square-PrimaryColor' src={xCircle}/>
 				</div>
 			</div>
 			<form className=" bg-gray-550 from">
@@ -48,35 +32,7 @@ export default function Sidebar() {
 						</div>
 					</div>
 					<div className="flex bg-white h-11 items-center rounded-xl">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-						>
-							<path
-								stroke="rgba(242, 138, 93, 1)"
-								strokeWidth="2"
-								strokeLinejoin="round"
-								strokeLinecap="round"
-								d="M18 20L18 10"
-							></path>
-							<path
-								stroke="rgba(242, 138, 93, 1)"
-								strokeWidth="2"
-								strokeLinejoin="round"
-								strokeLinecap="round"
-								d="M12 20L12 4"
-							></path>
-							<path
-								stroke="rgba(242, 138, 93, 1)"
-								strokeWidth="2"
-								strokeLinejoin="round"
-								strokeLinecap="round"
-								d="M6 20L6 14"
-							></path>
-						</svg>
+						<image className='barChart' src={barChart}/>
 						<select
 							className="w-full outline-none"
 							size="1"
@@ -106,28 +62,7 @@ export default function Sidebar() {
 					<div>
 						<div className=" text-sm mb-4">Book Title</div>
 						<div className="flex h-11 items-center bg-white mb-5">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
-								<path
-									d="M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58176 6.58172 3.00004 11 3.00004C15.4183 3.00004 19 6.58176 19 11Z"
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-								></path>
-								<path
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-									d="M21.0004 21.0001L16.6504 16.6501"
-								></path>
-							</svg>
+							<image className='search' src={search}/>
 							<input
 								className="outline-none"
 								type="text"
@@ -139,22 +74,7 @@ export default function Sidebar() {
 					<div>
 						<div className=" text-sm mb-4 flex justify-between">
 							Year
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
-								<path
-									fillRule="evenodd"
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-									d="M18 15L12 9L6 15M18 15L12 9L6 15"
-								></path>
-							</svg>
+							<image className='chevronUp' src={chevronUp}/>
 						</div>
 						<div className="flex">
 							<input
@@ -176,46 +96,10 @@ export default function Sidebar() {
 					<div>
 						<div className=" text-sm my-4 flex justify-between">
 							Auther
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
-								<path
-									fillRule="evenodd"
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-									d="M18 15L12 9L6 15M18 15L12 9L6 15"
-								></path>
-							</svg>
+							<image className='chevronUp' src={chevronUp}/>
 						</div>
 						<div className="flex h-11 items-center bg-white mb-5">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
-								<path
-									d="M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58176 6.58172 3.00004 11 3.00004C15.4183 3.00004 19 6.58176 19 11Z"
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-								></path>
-								<path
-									stroke="rgba(242, 138, 93, 1)"
-									strokeWidth="2"
-									strokeLinejoin="round"
-									strokeLinecap="round"
-									d="M21.0004 21.0001L16.6504 16.6501"
-								></path>
-							</svg>
+							<image className='search' src={search}/>
 							<input
 								className="outline-none"
 								type="text"
