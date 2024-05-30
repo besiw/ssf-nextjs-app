@@ -82,56 +82,62 @@ export default function Sidebar() {
 				</div>
 				<div className=' py-3 pl-2 pr-5 bg-white rounded-md'>
 					<div className="filter w-full overflow-y-scroll h-272 flex items-start flex-col ">
-						<div>
+					<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
 						</div>
-						<div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
-						</div><div>
-							<input type="checkbox" className="mr-5" />
-							Auther
-							<br />
-						</div><div>
+						</div>
+						<div className='flex items-center pb-3'>
 							<input type="checkbox" className="mr-5" />
 							Auther
 							<br />
