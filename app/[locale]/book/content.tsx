@@ -17,6 +17,22 @@ export default function Content() {
 	const desiredHeight = windowHeight - 100;
 	const pageCount = Math.floor(totalHeight / desiredHeight) + 1;
 	console.log(pageCount);
+	const checkDark = () => {
+		if (window.matchMedia) {
+			// Check if the dark-mode Media-Query matches
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				console.log('dark');
+				// Dark
+			} else {
+				console.log('light');
+				// Light
+			}
+		} else {
+			console.log('not supported');
+			// Default (when Media-Queries are not supported)
+		}
+	};
+	checkDark();
 	return (
 		<div className="w-full relative">
 			<div ref={ref} className="">
