@@ -19,7 +19,7 @@ export default function Content() {
 	console.log(pageCount);
 	return (
 		<div className="w-full relative">
-			<div ref={ref} style={{ visibility: 'hidden' }} className="absolute">
+			<div ref={ref} className="">
 				<h2>Tiden i Drøbak</h2>
 				<p>
 					<br />
@@ -149,7 +149,7 @@ export default function Content() {
 					<br />
 				</p>
 			</div>
-			<div
+			{/* <div
 				className="overflow-hidden relative"
 				style={{
 					width: width - 20,
@@ -295,7 +295,7 @@ export default function Content() {
 						<br />
 					</p>
 				</div>
-			</div>
+			</div> */}
 			<div className="flex w-full justify-between">
 				<button
 					onClick={() => {

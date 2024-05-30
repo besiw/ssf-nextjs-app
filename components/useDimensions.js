@@ -1,4 +1,5 @@
 // useDimensions.js
+'use client';
 
 import { useMemo, useSyncExternalStore } from 'react';
 
