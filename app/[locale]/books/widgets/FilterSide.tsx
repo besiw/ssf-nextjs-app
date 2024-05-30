@@ -144,7 +144,9 @@ export default function Sidebar() {
 						</div>
 					</div>
 				</div>
-				<SidebarButton buttonBody="Reset"/>
+				<div className='flex justify-center items-center mt-7'>
+					<SidebarButton buttonBody="Reset"/>
+				</div>
 		</form>
 	);
 }
