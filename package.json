@@ -16,12 +16,15 @@
     "react-dom": "^18",
     "react-highlight-words": "^0.20.0",
     "react-hook-form": "^7.51.5",
+    "uuid": "^9.0.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-highlight-words": "^0.20.0",
+    "@types/uuid": "^9.0.8",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
