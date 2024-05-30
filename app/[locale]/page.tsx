@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import { useTranslations } from 'next-intl';
 import BookFilter from '@/app/[locale]/books/widgets/Sidebar/Sidebar';
-import BookFilter2 from '@/app/[locale]/books/widgets/Filter';
+import BookFilter2 from '@/app/[locale]/books/widgets/FilterSide';
 import Content from '@/app/[locale]/book/Content';
 import Image from 'next/image';
 import heroImage from '../../assets/img/intl_icon.png';

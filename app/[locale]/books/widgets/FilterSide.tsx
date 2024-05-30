@@ -11,9 +11,9 @@ export default function Sidebar() {
 	return (
 		<form className="">
 			<div className=" ml-5 mr-3">
-				<div className="flex text-13 mt-2 mb-4 pt-7 text-white-warm ">
+				<div className="flex text-13 mt-2 mb-4 pt-7 px-5 text-white-warm ">
 					Sorting
-					<div className="flex w-full items-center">
+					<div className="flex w-full items-center pl-3">
 						<hr className="w-full" />
 					</div>
 				</div>
