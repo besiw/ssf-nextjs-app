@@ -1,22 +1,18 @@
 import React, { createRef } from 'react';
+import './content.css';
 import {
-	HighLightType,
-	NoteType,
 	noteData,
 	highlightedData,
 	contentData,
 } from '@/app/mockData/bookContent';
+import { HighLightType, hlMapType } from '../type';
 import Highlighter from 'react-highlight-words';
 import { v4 as uuidv4 } from 'uuid';
-
-type hlMapType = {
-	[key: number]: {
-		[key: number]: string;
-	};
-};
+import SideNotes from './SideNotes';
 
 type PagerProps = {
 	title?: string;
+	windowWidth: number;
 	totalWidth: number;
 	totalHeight: number;
 	desiredWidth: number;
@@ -29,14 +25,14 @@ type StateType = {
 	notes: HighLightType[];
 	showNotes: boolean;
 };
+const sideColWidthMax = 320;
 class BookPager extends React.Component<PagerProps> {
 	state: Readonly<StateType> = {
 		currentPage: 0,
 		notes: highlightedData,
 		showNotes: false,
 	};
-	noteRefs = noteData.map(() => createRef());
-	showButtonRef = createRef();
+	noteRefs = noteData.map(() => createRef<HTMLDivElement>());
 
 	setCurrentPage = (page: number) => {
 		this.setState({ currentPage: page });
@@ -49,26 +45,7 @@ class BookPager extends React.Component<PagerProps> {
 	setNotes = (note: HighLightType) => {
 		this.setState({ notes: [...this.state.notes, note] });
 	};
-	getNotePosition = (index: number) => {
-		const el = this.noteRefs[index].current;
-		if (el && el.getBoundingClientRect) {
-			const domProps = el.getBoundingClientRect();
-			const { x, y, top, width, height } = domProps;
-			const result = {
-				display: x > 320 && x < this.props.totalWidth + 320 ? 'block' : 'none',
-				top: top - 100,
-				left: null,
-				right: null,
-			};
-			if (x < 320 + this.props.totalWidth / 2) {
-				result.left = -320 - 16;
-			} else {
-				result.right = -0 - 320 - 32;
-			}
-			console.log(result);
-			return result;
-		}
-	};
+
 	componentDidMount() {
 		setTimeout(() => {
 			this.setState({ showNotes: true });
@@ -79,14 +56,14 @@ class BookPager extends React.Component<PagerProps> {
 			this.props;
 		const hlMap: hlMapType = {};
 		const ntMap: hlMapType = {};
-		// highlightedData &&
-		// 	highlightedData.map((h, i) => {
-		// 		if (h.blkId && hlMap[h.blkId]) {
-		// 			hlMap[h.blkId][h.stcId] = `${i}`;
-		// 		} else {
-		// 			hlMap[h.blkId] = { [h.stcId]: `${i}` };
-		// 		}
-		// 	});
+		highlightedData &&
+			highlightedData.map((h, i) => {
+				if (h.blkId && hlMap[h.blkId]) {
+					hlMap[h.blkId][h.stcId] = `${i}`;
+				} else {
+					hlMap[h.blkId] = { [h.stcId]: `${i}` };
+				}
+			});
 
 		this.state.notes &&
 			this.state.notes.map((n, i) => {
@@ -100,17 +77,11 @@ class BookPager extends React.Component<PagerProps> {
 		return (
 			<div className="relative">
 				{this.state.showNotes && (
-					<>
-						{this.noteRefs.map((item, index) => {
-							const d = this.getNotePosition(index);
-							console.log(d);
-							return (
-								<div className="absolute w-80" key={index} style={{ ...d }}>
-									asdf
-								</div>
-							);
-						})}
-					</>
+					<SideNotes
+						noteRefs={this.noteRefs}
+						windowWidth={this.props.windowWidth}
+						totalWidth={this.props.totalWidth}
+					/>
 				)}
 				<div
 					className="overflow-hidden"
@@ -164,8 +135,7 @@ class BookPager extends React.Component<PagerProps> {
 											} else {
 												return (
 													<span
-														onClick={(e) => {
-															console.log(e.target.getBoundingClientRect());
+														onClick={() => {
 															this.setNotes({
 																blkId: item.id,
 																stcId: s.id,
@@ -222,11 +192,3 @@ class BookPager extends React.Component<PagerProps> {
 }
 
 export default BookPager;
-
-async function simulateMouseClick(el) {
-	let opts = { view: window, bubbles: true, cancelable: true, buttons: 1 };
-	el.dispatchEvent(new MouseEvent('mousedown', opts));
-	await new Promise((r) => setTimeout(r, 50));
-	el.dispatchEvent(new MouseEvent('mouseup', opts));
-	el.dispatchEvent(new MouseEvent('click', opts));
-}

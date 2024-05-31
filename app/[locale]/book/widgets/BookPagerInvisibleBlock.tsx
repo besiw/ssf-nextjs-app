@@ -1,13 +1,16 @@
-import React, { forwardRef } from 'react';
-import { contentData } from '@/app/mockData/bookContent';
+import React from 'react';
+import { contentDataType } from '../type';
 import { v4 as uuidv4 } from 'uuid';
-type BlocklistProps = {};
 
-const BlockList: React.FC<BlocklistProps> = () => {
+type InvisibleBlockProps = {
+	content: contentDataType;
+};
+
+const InvisibleBlock: React.FC<InvisibleBlockProps> = ({ content }) => {
 	return (
 		<>
-			<h1> {contentData.chapter.title}</h1>
-			{contentData.c.map((item) => {
+			<h1> {content.chapter.title}</h1>
+			{content.c.map((item) => {
 				if (item.type === 'p') {
 					return (
 						<p key={`${item.id}${uuidv4()}`} className="mt-4">
@@ -21,4 +24,4 @@ const BlockList: React.FC<BlocklistProps> = () => {
 		</>
 	);
 };
-export default BlockList;
+export default InvisibleBlock;

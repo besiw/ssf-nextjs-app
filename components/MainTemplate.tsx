@@ -1,4 +1,3 @@
-import Content from '@/app/[locale]/book/BookContent';
 import { ReactNode } from 'react';
 
 type MainTemplateProps = {

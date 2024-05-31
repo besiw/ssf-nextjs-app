@@ -9,9 +9,11 @@ import settings from '@/assets/img/sliders-outline-black.png';
 import user from '@/assets/img/user.png';
 
 import Image from 'next/image';
-import { Link } from '@/middleware';
+import { Link, useRouter } from '@/middleware';
 
 function SideNav() {
+	const router = useRouter();
+	const currentPath = '';
 	return (
 		<div className="h-screen hidden 1.5xl:flex flex-col w-full md:w-28 pt-7 bg-gray-200">
 			<div className="flex-1">
@@ -37,8 +39,13 @@ function SideNav() {
 						{ imageSrc: history, label: 'Bookmarks', path: '/bookmarks' },
 						{ imageSrc: settings, label: 'Settings', path: '/search' },
 					].map((i, index) => {
+						const isActive = currentPath === i.path;
 						return (
-							<Link key={index} className="items-center m-auto" href={i.path}>
+							<Link
+								key={index}
+								className={`items-center m-auto ${isActive && 'bg-red'}`}
+								href={i.path}
+							>
 								<Image src={i.imageSrc} width={'24'} height={'24'} alt="" />
 							</Link>
 						);
