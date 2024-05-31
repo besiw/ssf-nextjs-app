@@ -12,7 +12,6 @@ import Image from 'next/image';
 import { Link, useRouter } from '@/middleware';
 
 function SideNav() {
-	const router = useRouter();
 	const currentPath = '';
 	return (
 		<div className="h-screen hidden 1.5xl:flex flex-col w-full md:w-28 pt-7 bg-gray-200">
