@@ -9,6 +9,8 @@ import settings from '@/assets/img/sliders-outline-black.png';
 import user from '@/assets/img/user.png';
 
 import Image from 'next/image';
+import { Link } from '@/middleware';
+
 function SideNav() {
 	return (
 		<div className="h-screen hidden 1.5xl:flex flex-col w-full md:w-28 pt-7 bg-gray-200">
@@ -36,9 +38,9 @@ function SideNav() {
 						{ imageSrc: settings, label: 'Settings', path: '/search' },
 					].map((i, index) => {
 						return (
-							<div key={index} className="items-center m-auto">
+							<Link key={index} className="items-center m-auto" href={i.path}>
 								<Image src={i.imageSrc} width={'24'} height={'24'} alt="" />
-							</div>
+							</Link>
 						);
 					})}
 				</div>
