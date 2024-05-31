@@ -23,7 +23,7 @@ export default function Content() {
 	const { width, height: totalHeight } = useDimensions(ref);
 	const { height: windowHeight } = useWindowDimensions();
 	let desiredWidth = width / 2 - 10;
-	const desiredHeight = windowHeight - 100;
+	const desiredHeight = windowHeight - 100 - 50;
 	const pageCount = Math.floor(totalHeight / desiredHeight) + 1;
 
 	const handleUpdateHL = (data: HighLightType) => {

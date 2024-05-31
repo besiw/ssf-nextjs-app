@@ -56,7 +56,7 @@ class BookPager extends React.Component<PagerProps> {
 			const { x, y, top, width, height } = domProps;
 			const result = {
 				display: x > 320 && x < this.props.totalWidth + 320 ? 'block' : 'none',
-				top,
+				top: top - 100,
 				left: null,
 				right: null,
 			};

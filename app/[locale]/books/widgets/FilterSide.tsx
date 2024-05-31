@@ -24,14 +24,6 @@ export default function Sidebar() {
 					<option>--Select--</option>
 					<option value="2">One</option>
 					<option value="3">Two</option>
-					<option value="4">Three</option>
-					<option value="">Four</option>
-					<option value="">Five</option>
-					<option value="">Six</option>
-					<option value="">Seven</option>
-					<option value="">Eight</option>
-					<option value="">Nine</option>
-					<option value="">Ten</option>
 				</select>
 			</div>
 			<SidebarTitle title="Filter" />
@@ -80,61 +72,6 @@ export default function Sidebar() {
 			</div>
 			<div className=" py-3 pl-2 pr-5 bg-white rounded-md">
 				<div className="filter w-full overflow-y-scroll h-272 flex items-start flex-col ">
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
-					<div className="flex items-center pb-3">
-						<input type="checkbox" className="mr-5" />
-						Auther
-						<br />
-					</div>
 					<div className="flex items-center pb-3">
 						<input type="checkbox" className="mr-5" />
 						Auther

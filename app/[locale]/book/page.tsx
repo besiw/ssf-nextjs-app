@@ -1,14 +1,13 @@
-import Header from "@/components/Header";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import heroImage from "../../assets/img/intl_icon.png";
-
+import MainTemplate from '@/components/MainTemplate';
+import BookContent from './BookContent';
+import BooksTitle from './BooksTitle';
 export default function Home() {
-
-
-  return (
-    <div>
-        book
-    </div>
-  );
+	return (
+		<MainTemplate
+			TopSection={<BooksTitle />}
+			LeftColumn={<div />}
+			rightColumn={<div />}
+			MainSection={<BookContent />}
+		/>
+	);
 }
