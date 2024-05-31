@@ -13,9 +13,9 @@ export default function BooksTitle() {
         </div>
         Stykker og referater i fornyet utgave fra Skjulte Skatter av Johan
         O.Smith
-        <div className="flex bg-PrimaryColor-diaphaneity12 px-3 rounded-xl">
+        <div className="flex bg-PrimaryColor-diaphaneity12 px-3 py-2 rounded-3xl">
           <Image src={chartbar} alt="" />
-          <div className="mx-2">index</div>
+          <div className="mx-2">Index</div>
           <Image src={arrowdom} alt="" />
         </div>
       </div>

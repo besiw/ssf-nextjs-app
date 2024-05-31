@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import Heart from "./Heart";
+import Heart from "../../../../../components/book/Heart";
 type BooksProps = {
   path?: StaticImageData | undefined;
   text?: string | undefined;

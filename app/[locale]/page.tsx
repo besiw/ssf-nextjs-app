@@ -5,7 +5,7 @@ import BookFilter2 from "@/app/[locale]/books/widgets/FilterSide";
 import Content from "@/app/[locale]/book/BookContent";
 import Image from "next/image";
 import heroImage from "../../assets/img/intl_icon.png";
-import Heart from "./books/widgets/package/Heart";
+import Heart from "../../components/book/Heart";
 
 export default function Home() {
   const t = useTranslations("Home");
