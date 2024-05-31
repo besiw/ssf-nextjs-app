@@ -382,3 +382,55 @@ export const contentData: contentDataType = {
 		},
 	],
 };
+
+export type HighLightType = {
+	blkId: number;
+	stcId: number;
+	color?: string;
+};
+export type NoteType = {
+	bookId: number;
+	chapId: number;
+	blkId: number;
+	stcId: number;
+	author: {
+		id: number;
+		name: string;
+	};
+	c: string[];
+};
+export const highlightedData = [
+	{
+		blkId: 2,
+		stcId: 5,
+	},
+	{
+		blkId: 5,
+		stcId: 9,
+	},
+];
+
+export const noteData = [
+	{
+		bookId: 1,
+		chapId: 1,
+		blkId: 4,
+		stcId: 4,
+		author: {
+			id: 1,
+			name: 'Kare Smith',
+		},
+		c: ['<p>asdfasdf, asdfasd</p><p>asdfasdf, asdfasd</p>'],
+	},
+	{
+		bookId: 1,
+		chapId: 1,
+		blkId: 1,
+		stcId: 6,
+		author: {
+			id: 1,
+			name: 'Kare Smith',
+		},
+		c: ['<p>asdfasdf, asdfasd</p><p>asdfasdf, asdfasd</p>'],
+	},
+];

@@ -1,11 +1,15 @@
 import { contentData } from '@/app/mockData/bookContent';
-import { HighLightType } from '@/app/[locale]/book/BookContent';
+import { RefObject } from 'react';
+
 import Highlighter from 'react-highlight-words';
 import { v4 as uuidv4 } from 'uuid';
+import { HighLightType, NoteType } from '@/app/mockData/bookContent';
 type BlocklistProps = {
 	title?: string;
+	noteRefs?: RefObject<HTMLDivElement>[];
 	updateHighlighted: (data: HighLightType) => void;
 	highlighted: HighLightType[];
+	noted: NoteType[];
 };
 
 type hlMapType = {
@@ -17,9 +21,11 @@ type hlMapType = {
 const BlockList: React.FC<BlocklistProps> = ({
 	updateHighlighted,
 	highlighted,
+	noted,
+	noteRefs,
 }) => {
 	const hlMap: hlMapType = {};
-
+	const ntMap: hlMapType = {};
 	highlighted &&
 		highlighted.map((h) => {
 			if (h.blkId && hlMap[h.blkId]) {
@@ -29,6 +35,14 @@ const BlockList: React.FC<BlocklistProps> = ({
 			}
 		});
 
+	noted &&
+		noted.map((n) => {
+			if (n.blkId && hlMap[n.blkId]) {
+				ntMap[n.blkId][n.stcId] = true;
+			} else {
+				ntMap[n.blkId] = { [n.stcId]: true };
+			}
+		});
 	return (
 		<>
 			<h1> {contentData.chapter.title}</h1>
@@ -36,8 +50,18 @@ const BlockList: React.FC<BlocklistProps> = ({
 				if (item.type === 'p') {
 					return (
 						<p key={`${item.id}${uuidv4()}`} className="mt-4">
-							{item.c.map((s) => {
-								if (hlMap[item.id] && hlMap[item.id][s.id]) {
+							{item.c.map((s, index) => {
+								if (ntMap[item.id] && ntMap[item.id][s.id] && noteRefs) {
+									return (
+										<span ref={noteRefs[index]} key={`${s.id}${uuidv4()}`}>
+											<Highlighter
+												searchWords={[s.c]}
+												autoEscape={true}
+												textToHighlight={s.c + ' '}
+											/>
+										</span>
+									);
+								} else if (hlMap[item.id] && hlMap[item.id][s.id]) {
 									return (
 										<Highlighter
 											key={`${s.id}${uuidv4()}`}
