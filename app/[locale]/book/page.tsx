@@ -4,9 +4,15 @@ import BooksTitle from './BooksTitle';
 export default function Home() {
 	return (
 		<MainTemplate
-			TopSection={<BooksTitle />}
+			TopSection={
+				<BooksTitle
+					bookTitle="Stykker og referater i fornyet utgave fra Skjulte Skatter av Johan
+			O.Smith"
+					bookAuthor="Kare J. Smith"
+				/>
+			}
 			LeftColumn={<div />}
-			rightColumn={<div />}
+			RightColumn={<div />}
 			MainSection={<BookContent />}
 		/>
 	);
