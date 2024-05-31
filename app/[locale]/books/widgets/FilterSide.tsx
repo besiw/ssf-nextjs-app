@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 import barChart from '@/assets/svg/chartbar-outline-PrimaryColor.svg';
 import sreach from '@/assets/svg/search-outline-PrimaryColor.svg';
 import chevronUp from '@/assets/svg/chevronUp-outline-PrimaryColor.svg';
-import './Sidebar/Sidebar.css';
+import './package/Sidebar.css';
 
 import Image from 'next/image';
-import SidebarTitle from './Sidebar/SidebarTitle';
-import SidebarButton from './Sidebar/SidebarButton';
+import SidebarTitle from './package/SidebarTitle';
+import SidebarButton from './package/SidebarButton';
 export default function Sidebar() {
 	const {
 		formState: { errors },

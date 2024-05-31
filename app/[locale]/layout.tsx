@@ -26,7 +26,7 @@ export default function RootLayout({ children, locale }: RootLayoutProps) {
 			<body className={`${inter.className} flex h-screen md:h-auto md:w-auto`}>
 				<SideNav />
 				<ButtomNav />
-				<main className="flex-1 h-screen max-h-screen w-screen max-w-screen overflow-y-scroll">
+				<main className="flex-1 h-screen max-h-screen w-screen max-w-screen overflow-hidden">
 					{children}
 				</main>
 			</body>

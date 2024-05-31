@@ -1,10 +1,12 @@
 'use client';
 
-import { useRef, useState, createRef } from 'react';
+import { useRef, useState, createRef, useEffect } from 'react';
 import './content.css';
 import { useDimensions } from '@/components/useDimensions';
 import { useWindowDimensions } from '@/components/useWindowDimensions';
 import BlockList from './BlockList';
+import InvisibleBlock from './InvisibleBlock';
+import BookPager from './BookPager';
 import {
 	highlightedData,
 	noteData,
@@ -28,61 +30,20 @@ export default function Content() {
 		updateHighlighted([...highlighted, data]);
 	};
 
-	const noteRefs = noteData.map((d) => createRef<HTMLDivElement>());
-	console.log(noteRefs);
+	// const noteRefs = useRef(noteData.map((d) => createRef<HTMLDivElement>()));
+
 	return (
 		<div className="w-full relative">
 			<div ref={ref} className="absolute invisible">
-				<BlockList
-					noted={[]}
-					updateHighlighted={handleUpdateHL}
-					highlighted={[]}
-				/>
+				<InvisibleBlock />
 			</div>
-			<div
-				className="overflow-hidden relative"
-				style={{
-					width: width - 20,
-					height: desiredHeight,
-				}}
-			>
-				<div
-					className="absolute"
-					style={{
-						left: currentPage === 0 ? 0 : -width * currentPage + 10,
-						width: pageCount * desiredWidth,
-						height: desiredHeight,
-						WebkitColumnCount: pageCount,
-					}}
-				>
-					<BlockList
-						noted={noteData}
-						noteRefs={noteRefs}
-						updateHighlighted={handleUpdateHL}
-						highlighted={highlighted}
-					/>
-				</div>
-			</div>
-			<div className="flex w-full justify-between">
-				<button
-					onClick={() => {
-						if (currentPage > 0) {
-							setCurrentPage(currentPage - 1);
-						}
-					}}
-				>
-					Previous
-				</button>
-				<button
-					onClick={() => {
-						if (currentPage < pageCount - 1) {
-							setCurrentPage(currentPage + 1);
-						}
-					}}
-				>
-					Next
-				</button>
-			</div>
+			<BookPager
+				totalHeight={totalHeight}
+				totalWidth={width}
+				desiredWidth={desiredWidth}
+				desiredHeight={desiredHeight}
+				pageCount={pageCount}
+			/>
 		</div>
 	);
 }
