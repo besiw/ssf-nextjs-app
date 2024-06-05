@@ -1,9 +1,9 @@
 import React from "react";
-import home from "@/assets/img/home-outline-black.png";
-import books from "@/assets/img/book-outline-black.png";
-import magazine from "@/assets/img/open-book-outline-black.png";
-import search from "@/assets/img/search-outline-black.png";
-import more from "@/assets/img/more-outline-black.png";
+import home from "@/assets/svg/home-outline-black.svg";
+import books from "@/assets/svg/book-outline-black.svg";
+import magazine from "@/assets/svg/open-book-outline-black.svg";
+import search from "@/assets/svg/search-outline-black.svg";
+import more from "@/assets/svg/more-outline-black.svg";
 import Image from "next/image";
 
 function Bottoncolum() {
@@ -33,7 +33,7 @@ function Bottoncolum() {
           { path: more, text: "More" },
         ].map((i, index) => {
           return (
-            <div key={index} className="m-auto">
+            <div key={index} className="m-auto ">
               <Image
                 src={i.path}
                 width={"24"}

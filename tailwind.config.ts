@@ -24,6 +24,12 @@ const config: Config = {
         734: "45.875rem",
         950: "59.375rem",
       },
+      lineClamp: {
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
+      },
     },
     colors: {
       gray: {
@@ -59,6 +65,7 @@ const config: Config = {
         400: "#1A1A1A",
         500: "#252525",
         600: "#242424",
+        diaphaneity60: "rgba(0,0,0,0.6)",
       },
       pink: {
         200: "#FF86C0",
@@ -132,5 +139,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  lineClamp: ["responsive", "hover"],
 };
 export default config;
