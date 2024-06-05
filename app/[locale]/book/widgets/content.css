@@ -5,3 +5,8 @@
 	/* Firefox */
 	columns: 60px 2;
 }
+
+.app-underline {
+	text-decoration: underline dotted #f28a5d;
+	text-decoration-thickness: 3px;
+}

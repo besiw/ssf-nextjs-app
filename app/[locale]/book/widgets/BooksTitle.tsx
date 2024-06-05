@@ -13,7 +13,7 @@ type BooksTitleProps = {
 const BooksTitle: React.FC<BooksTitleProps> = ({ bookTitle, bookAuthor }) => {
 	return (
 		<>
-			<div className="flex justify-between px-5 pt-8">
+			<div className="flex justify-between px-5 py-4">
 				<div className="flex">
 					<Image src={arrowleft} alt="" />
 					<div className=" ml-2">Book Cover</div>
@@ -25,7 +25,7 @@ const BooksTitle: React.FC<BooksTitleProps> = ({ bookTitle, bookAuthor }) => {
 					<Image src={arrowdom} alt="" />
 				</div>
 			</div>
-			<div className="flex justify-center text-PrimaryColor-200 pt-4">
+			<div className="flex justify-center text-PrimaryColor-200 pb-4">
 				{bookAuthor}
 			</div>
 		</>

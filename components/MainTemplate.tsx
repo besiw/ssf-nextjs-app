@@ -5,6 +5,7 @@ type MainTemplateProps = {
 	LeftColumn?: ReactNode;
 	MainSection?: ReactNode;
 	RightColumn?: ReactNode;
+	scroll?: boolean;
 };
 
 const MainTemplate: React.FC<MainTemplateProps> = ({
@@ -12,11 +13,14 @@ const MainTemplate: React.FC<MainTemplateProps> = ({
 	MainSection,
 	RightColumn,
 	TopSection,
+	scroll,
 }) => {
 	return (
-		<div className="w-full h-screen flex flex-col">
+		<div className="w-full h-screen flex flex-col relative">
 			{TopSection && <div className="w-full">{TopSection}</div>}
-			<div className="flex flex-row flex-1">
+			<div
+				className={`flex flex-row flex-1 ${scroll ? 'overflow-y-scroll' : ''}`}
+			>
 				{LeftColumn && (
 					<div className="w-full md:w-64 md:min-w-64 lg:w-80 lg:min-w-80">
 						{LeftColumn}

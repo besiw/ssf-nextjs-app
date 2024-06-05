@@ -1,4 +1,4 @@
-import { contentDataType } from '@/app/[locale]/book/type';
+import { contentDataType, noteType } from '@/app/[locale]/book/type';
 export const contentData: contentDataType = {
 	chapter: {
 		id: 1,
@@ -381,27 +381,27 @@ export const highlightedData = [
 	},
 ];
 
-export const noteData = [
+export type HighlightType = {
+	[pId: string]: {
+		[sId: string]: string | undefined;
+	};
+};
+
+export const noteData: noteType[] = [
 	{
-		bookId: 1,
-		chapId: 1,
-		blkId: 4,
-		stcId: 4,
-		author: {
-			id: 1,
-			name: 'Kare Smith',
+		id: 1,
+		color: 'bg-green-200',
+		author: ' Kåre J. Smith',
+		title: 'referece .....',
+		content: 'asdfasdf , asdfasdfasdf. asdfasdfasd, asdfasdf.',
+		location: {
+			1: {
+				'1': {
+					7: 'bg-green-200',
+				},
+			},
 		},
-		c: ['<p>asdfasdf, asdfasd</p><p>asdfasdf, asdfasd</p>'],
-	},
-	{
-		bookId: 1,
-		chapId: 1,
-		blkId: 1,
-		stcId: 6,
-		author: {
-			id: 1,
-			name: 'Kare Smith',
-		},
-		c: ['<p>asdfasdf, asdfasd</p><p>asdfasdf, asdfasd</p>'],
 	},
 ];
+
+//{"7": "Jeg husker enda hvordan vi på vinterstid ble akket inn i ulltepper og båret over til vårt hjem etter at vi var badet."
