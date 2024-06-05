@@ -8,7 +8,7 @@ import ToolBox from './ContentToolBox';
 import { noteType, highlightType } from '../type';
 import { v4 as uuidv4 } from 'uuid';
 import NoteBlock from './SideNoteBlock';
-import { number } from 'zod';
+import { cormorant } from '@/components/font';
 export default function Content() {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [selected, setSelected] = useState<highlightType>({});
@@ -132,11 +132,11 @@ export default function Content() {
 		}
 	});
 
-	const { width, height } = useDimensions(containerRef);
+	const { width } = useDimensions(containerRef);
 	const { width: windowWidth } = useWindowDimensions();
-	const noteWidth = (windowWidth - 120 - width) / 2;
+	const noteWidth = (windowWidth - 80 - width) / 2;
 	return (
-		<div className="w-full" ref={containerRef}>
+		<div className={`w-full ${cormorant.className}`} ref={containerRef}>
 			<h1> {contentData.chapter.title}</h1>
 			{contentData.c.map((item) => {
 				if (item.type === 'p') {
@@ -183,15 +183,12 @@ export default function Content() {
 												className="absolute bg-primaryColor-200"
 												style={{
 													left: isLeft ? -noteWidth : undefined,
-													right: isLeft ? undefined : -noteWidth,
+													right: isLeft ? undefined : -noteWidth + 5,
 													width: noteWidth,
 													top: 0,
 												}}
 											>
-												<NoteBlock
-													left={isNoteRef % 2 === 0}
-													{...notes[isNoteRef]}
-												/>
+												<NoteBlock left={isLeft} {...notes[isNoteRef]} />
 											</div>
 										</div>
 										{spanBlock}

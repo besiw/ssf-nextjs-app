@@ -6,6 +6,7 @@ type MainTemplateProps = {
 	MainSection?: ReactNode;
 	RightColumn?: ReactNode;
 	scroll?: boolean;
+	showFilter?: boolean;
 };
 
 const MainTemplate: React.FC<MainTemplateProps> = ({
