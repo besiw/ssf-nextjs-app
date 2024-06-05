@@ -1,4 +1,4 @@
-import { cormorant } from "@/components/font/font";
+import { cormorant, cormorant_Garamond } from "@/components/font/font";
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
 type bookmarksProps = {
@@ -9,15 +9,7 @@ type bookmarksProps = {
   icon?: string;
   time?: string;
 };
-type FontObject = {
-  className: string;
-};
-const cormorant_Garamond: FontObject = Cormorant_Garamond({
-  weight: ["600"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
+
 const bookmarks: React.FC<bookmarksProps> = ({
   title,
   note,
@@ -36,18 +28,20 @@ const bookmarks: React.FC<bookmarksProps> = ({
         </div>
       </div>
       <div className="flex">
-        <div className="flex flex-col w-8 h-9">
+        <div className="flex flex-col w-8 h-9 pt-1">
           <Image src={icon} alt="" />
-          <div className={` border-t-4 ${color}`}></div>
+          {color && <div className={` border-t-4 ${color}`}></div>}
         </div>
-        <div className="flex pl-5 pr-8  flex-col w-80">
+        <div className={`flex pl-5 pr-8  flex-col w-80 ${cormorant.className}`}>
           <div className="truncate text-10">{bookContent}</div>
           <div className={`text-10 text-black-diaphaneity60 normal`}>
             {time}
           </div>
-          <div className={`italic overflow-hidden text-10 line-clamp-2`}>
-            {note}
-          </div>
+          {note && (
+            <div className={`italic overflow-hidden text-10 line-clamp-2 `}>
+              {note}
+            </div>
+          )}
         </div>
       </div>
     </>
