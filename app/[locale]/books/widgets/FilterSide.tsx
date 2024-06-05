@@ -10,13 +10,11 @@ import "../../../../components/Sidebar/Sidebar.css";
 import Image from "next/image";
 import SidebarTitle from "../../../../components/Sidebar/SidebarTitle";
 import SidebarButton from "../../../../components/Sidebar/SidebarButton";
-import { useState } from "react";
 export default function Sidebar() {
   const {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
-  const { isOpen, SetisOpen } = useState(true);
 
   return (
     <form className="px-5 text-start test" onChange={() => {}}>

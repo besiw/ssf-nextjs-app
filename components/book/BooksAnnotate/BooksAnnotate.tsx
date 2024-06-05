@@ -1,20 +1,29 @@
 import Annotate from "./Annotate";
 
 type BooksAnnotateProps = {
-  title: string;
+  booksName: string;
+  year: string;
+  moon: string;
   autor?: string;
   note?: string;
 };
 
 const BooksAnnotate: React.FC<BooksAnnotateProps> = ({
-  title,
+  booksName,
+  year,
+  moon,
   autor,
   note,
 }) => {
   return (
     <>
-      <div>{title}</div>
-      <Annotate title={title} />
+      <div className="pb-7">
+        <span>{booksName}</span>
+        <span>{year}</span>
+        <span className=" text-PrimaryColor-200">/</span>
+        <span>{moon}</span>
+      </div>
+      <Annotate booksName={booksName} year={year} moon={moon} autor={autor} />
     </>
   );
 };

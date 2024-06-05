@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import home from "@/assets/svg/home-outline-black.svg";
+import home2 from "@/assets/svg/home-outline-PrimaryColor.svg";
 import books from "@/assets/svg/book-outline-black.svg";
 import magazine from "@/assets/svg/open-book-outline-black.svg";
 import search from "@/assets/svg/search-outline-black.svg";
@@ -7,6 +9,7 @@ import more from "@/assets/svg/more-outline-black.svg";
 import Image from "next/image";
 
 function Bottoncolum() {
+  const [sumbut, SetSumbut] = useState(true);
   return (
     <div className="absolute bottom-0 w-full flex 1.5xl:hidden">
       <div
