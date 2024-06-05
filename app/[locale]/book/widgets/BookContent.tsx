@@ -1,18 +1,20 @@
-// 'use client';
-import { useState, useRef } from 'react';
+'use client';
+import { useState, useRef, createRef } from 'react';
 import './content.css';
 import { useDimensions } from '@/components/useDimensions';
-import { contentData } from '@/app/mockData/bookContent';
+import { useWindowDimensions } from '@/components/useWindowDimensions';
+import { contentData, noteData } from '@/app/mockData/bookContent';
 import ToolBox from './ContentToolBox';
 import { noteType, highlightType } from '../type';
 import { v4 as uuidv4 } from 'uuid';
 import NoteBlock from './SideNoteBlock';
+import { number } from 'zod';
 export default function Content() {
-	const containerRef = useRef(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 	const [selected, setSelected] = useState<highlightType>({});
 	const [highlighted, setHighlighted] = useState<highlightType>({});
 
-	const [notes, setNotes] = useState<noteType[]>([]);
+	const [notes, setNotes] = useState<noteType[]>(noteData);
 	const [showToolBox, setShowToolBox] = useState<boolean>(false);
 	const [hlColor, setHLColor] = useState<string>('bg-PrimaryColor-200');
 
@@ -111,7 +113,6 @@ export default function Content() {
 	};
 	const ntHLMap: highlightType = {};
 	const ntRefMap: { [sId: string]: { [pId: string]: number } } = {};
-
 	notes.map((n, nIndex) => {
 		if (n.location[1]) {
 			Object.keys(n.location[1]).map((pId, pIndex) => {
@@ -131,8 +132,9 @@ export default function Content() {
 		}
 	});
 
-	const { width } = useDimensions(containerRef);
-
+	const { width, height } = useDimensions(containerRef);
+	const { width: windowWidth } = useWindowDimensions();
+	const noteWidth = (windowWidth - 120 - width) / 2;
 	return (
 		<div className="w-full" ref={containerRef}>
 			<h1> {contentData.chapter.title}</h1>
@@ -152,7 +154,7 @@ export default function Content() {
 
 								const uid = `${s.id}${uuidv4()}`;
 
-								return (
+								const spanBlock = (
 									<span
 										// ref={
 										// 	typeof isNoteRef === 'number'
@@ -167,14 +169,35 @@ export default function Content() {
 												reference: s.c,
 											});
 										}}
-										className={`relative ${isSelect ? 'app-underline' : ''} ${isHighlighted ? isHighlighted : ''} ${hlNote ? hlNote : ''}`}
+										className={`${isSelect ? 'app-underline' : ''} ${isHighlighted ? isHighlighted : ''} ${hlNote ? hlNote : ''}`}
 										key={uid}
 									>
 										{s.c}{' '}
-										{isNoteRef && (
-											<div className="absolute left-0">{isNoteRef}</div>
-										)}
 									</span>
+								);
+								const isLeft = isNoteRef % 2 === 0;
+								return typeof isNoteRef === 'number' ? (
+									<>
+										<div className="relative hidden lg:block" key={uid}>
+											<div
+												className="absolute bg-primaryColor-200"
+												style={{
+													left: isLeft ? -noteWidth : undefined,
+													right: isLeft ? undefined : -noteWidth,
+													width: noteWidth,
+													top: 0,
+												}}
+											>
+												<NoteBlock
+													left={isNoteRef % 2 === 0}
+													{...notes[isNoteRef]}
+												/>
+											</div>
+										</div>
+										{spanBlock}
+									</>
+								) : (
+									spanBlock
 								);
 							})}
 						</p>
