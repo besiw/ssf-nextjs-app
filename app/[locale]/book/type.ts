@@ -20,7 +20,7 @@ export type highlightType = {
 };
 
 export type noteType = {
-	id: number;
+	id?: string;
 	author: string;
 	color: string;
 	title?: string;

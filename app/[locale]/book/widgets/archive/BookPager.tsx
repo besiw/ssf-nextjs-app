@@ -16,6 +16,8 @@ type PagerProps = {
 	desiredWidth: number;
 	desiredHeight: number;
 	pageCount: number;
+	page: number;
+	updateRoute: (nr: number) => void;
 };
 
 type StateType = {
@@ -31,17 +33,19 @@ type StateType = {
 		left?: number;
 	};
 	hlColor: string;
+	chapter?: string;
+	page?: string;
 };
 const sideColWidthMax = 320;
 
 // sessionStorage.removeItem('ssf-app-notes');
 const notesSessionData = sessionStorage.getItem('ssf-app-notes');
-console.log(notesSessionData);
+
 class BookPager extends React.Component<PagerProps> {
 	/*load data*/
 
 	state: Readonly<StateType> = {
-		currentPage: 0,
+		currentPage: this.props.page ? Number(this.props.page) : 0,
 		notes: notesSessionData ? JSON.parse(notesSessionData) : noteData,
 		showNotes: false,
 		selected: {},
@@ -71,7 +75,7 @@ class BookPager extends React.Component<PagerProps> {
 
 	setHLs = () => {
 		const update = this.handleSelectedActions(this.state.highlighted);
-		this.setState({ highlighted: update, selected: {} });
+		this.setState({ highlighted: update, selected: {}, showToolBox: false });
 	};
 
 	handleSelectedActions = (data: highlightType) => {
@@ -88,9 +92,8 @@ class BookPager extends React.Component<PagerProps> {
 		});
 		return update;
 	};
-	setNotes = () => {
+	setNotes = (data: string) => {
 		const update = this.handleSelectedActions({});
-		console.log(update);
 		const pId = Object.keys(this.state.selected)[0];
 		const sId = Object.keys(this.state.selected[pId])[0];
 		if (sId) {
@@ -99,25 +102,32 @@ class BookPager extends React.Component<PagerProps> {
 				color: this.state.hlColor,
 				author: `Author ${uuidv4()}`,
 				title: this.state.selected[pId][sId]?.substring(0, 30),
-				content: 'asdfasdf asdfasdfsadf ',
+				content: data,
 				location: {
 					1: {
 						...update,
 					},
 				},
 			};
-			const updateNotes = { notes: [...this.state.notes, note], selected: {} };
+			const updateState = {
+				notes: [...this.state.notes, note],
+				selected: {},
+				showToolBox: false,
+				showNotes: false,
+			};
 			sessionStorage.setItem(
 				'ssf-app-notes',
-				JSON.stringify(updateNotes.notes)
+				JSON.stringify(updateState.notes)
 			);
-			this.setState({ notes: [...this.state.notes, note], selected: {} });
+			this.setState(updateState);
+			this.props.updateRoute(this.state.currentPage);
+
 			setTimeout(() => {
 				sessionStorage.setItem(
 					'ssf-app-notes',
-					JSON.stringify(updateNotes.notes)
+					JSON.stringify(updateState.notes)
 				);
-				console.log('updated');
+
 				window.location.reload();
 			}, 200);
 		}
@@ -172,17 +182,23 @@ class BookPager extends React.Component<PagerProps> {
 		this.setState({ hlColor: color });
 	};
 
+	closeToolbox = () => {
+		this.setState({
+			selected: {},
+			showToolBox: false,
+		});
+	};
 	render() {
+		console.log(this.props);
 		const { desiredHeight, desiredWidth, totalWidth, pageCount, windowWidth } =
 			this.props;
 
 		const ntHLMap: highlightType = {};
-		const ntRefMap: highlightType = {};
+		const ntRefMap: { [sId: string]: { [pId: string]: number } } = {};
 
 		this.state.notes.map((n, nIndex) => {
 			if (n.location[1]) {
 				Object.keys(n.location[1]).map((pId, pIndex) => {
-					console.log(pId);
 					if (!ntHLMap[pId]) {
 						ntHLMap[pId] = {};
 					}
@@ -221,7 +237,8 @@ class BookPager extends React.Component<PagerProps> {
 							left:
 								this.state.currentPage === 0
 									? 0
-									: -totalWidth * this.state.currentPage + 10,
+									: -totalWidth * this.state.currentPage +
+										10 * this.state.currentPage,
 							width: pageCount * desiredWidth,
 							height: desiredHeight,
 							WebkitColumnCount: pageCount,
@@ -317,6 +334,7 @@ class BookPager extends React.Component<PagerProps> {
 						}}
 					>
 						<BookToolBox
+							closeToolBox={this.closeToolbox}
 							setHLs={this.setHLs}
 							color={this.state.hlColor}
 							setColor={this.setPickColor}
