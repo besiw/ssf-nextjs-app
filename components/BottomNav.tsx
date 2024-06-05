@@ -7,9 +7,10 @@ import magazine from "@/assets/svg/open-book-outline-black.svg";
 import search from "@/assets/svg/search-outline-black.svg";
 import more from "@/assets/svg/more-outline-black.svg";
 import Image from "next/image";
-
+import { Link, usePathname } from "@/middleware";
 function Bottoncolum() {
-  const [sumbut, SetSumbut] = useState(true);
+  const ePathname = usePathname();
+  const currentPath = ePathname;
   return (
     <div className="absolute bottom-0 w-full flex 1.5xl:hidden">
       <div
@@ -29,25 +30,33 @@ function Bottoncolum() {
                     px-4 
                     md:w-621">
         {[
-          { path: home, text: "Home" },
-          { path: books, text: "Library" },
-          { path: magazine, text: "Treasures" },
-          { path: search, text: "Search" },
-          { path: more, text: "More" },
+          { imageSrc: home, text: "Home", path: "/book" },
+          { imageSrc: books, text: "Library", path: "/books" },
+          {
+            imageSrc: magazine,
+            text: "Magazine",
+            path: "/hidden-treasure",
+          },
+          { imageSrc: search, text: "Search", path: "/search" },
+          { imageSrc: more, text: "More", path: "/book" },
         ].map((i, index) => {
+          const isActive = currentPath === i.path;
           return (
-            <div key={index} className="m-auto ">
-              <Image
-                src={i.path}
-                width={"24"}
-                height={"24"}
-                alt={i.text}
-                className="mx-auto"
-              />
-              <div className=" text-10 text-black-100 hover:text-PrimaryColor-200">
-                {i.text}
+            <Link key={index} className="items-center m-auto" href={i.path}>
+              <div
+                className={`w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && " bg-PrimaryColor-200"}`}>
+                <Image
+                  src={i.imageSrc}
+                  width={"24"}
+                  height={"24"}
+                  alt={i.text}
+                  className="mx-auto"
+                />
+                <div className="text-center text-10 text-black-100">
+                  {i.text}
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

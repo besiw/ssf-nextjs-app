@@ -18,6 +18,7 @@ const config: Config = {
       },
       spacing: {
         px: "1px",
+        19: "4.6875rem",
         272: "17rem",
         354: "22.125rem",
         621: "38.8rem",

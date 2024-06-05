@@ -15,7 +15,6 @@ import { Link, useRouter, usePathname } from "@/middleware";
 function SideNav() {
   const ePathname = usePathname();
   const currentPath = ePathname;
-  console.log(ePathname);
   return (
     <div className="h-screen hidden 1.5xl:flex flex-col w-full md:w-28 pt-7 bg-gray-200">
       <div className="flex-1">
@@ -43,10 +42,7 @@ function SideNav() {
           ].map((i, index) => {
             const isActive = currentPath === i.path;
             return (
-              <Link
-                key={index}
-                className={`items-center m-auto `}
-                href={i.path}>
+              <Link key={index} className={` m-auto `} href={i.path}>
                 <div
                   className={`w-14 h-14 flex items-center rounded-2xl justify-center ${isActive && " bg-PrimaryColor-200"}`}>
                   <Image src={i.imageSrc} width={"24"} height={"56"} alt="" />
