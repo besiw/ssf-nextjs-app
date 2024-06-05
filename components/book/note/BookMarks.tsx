@@ -1,4 +1,4 @@
-import { cormorant, cormorant_Garamond } from "@/components/font/font";
+import { cormorant, cormorant_Garamond } from "@/components/font";
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
 type bookmarksProps = {
