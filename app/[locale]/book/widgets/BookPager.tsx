@@ -1,14 +1,12 @@
 import React, { createRef } from 'react';
-import './content.css';
-import {
-	noteData,
-	highlightedData,
-	contentData,
-} from '@/app/mockData/bookContent';
-import { HighLightType, hlMapType } from '../type';
-import Highlighter from 'react-highlight-words';
+
+import { noteData, contentData } from '@/app/mockData/bookContent';
+import { BookToolBox } from './BlockToolTip';
+import { noteType, highlightType } from '../type';
 import { v4 as uuidv4 } from 'uuid';
 import SideNotes from './SideNotes';
+
+import './content.css';
 
 type PagerProps = {
 	title?: string;
@@ -22,17 +20,46 @@ type PagerProps = {
 
 type StateType = {
 	currentPage: number;
-	notes: HighLightType[];
+	notes: noteType[];
 	showNotes: boolean;
+	showToolBox: boolean;
+	selected: highlightType;
+	highlighted: highlightType;
+	toolTipPosition: {
+		top: number;
+		right?: number;
+		left?: number;
+	};
+	hlColor: string;
 };
 const sideColWidthMax = 320;
+
+// sessionStorage.removeItem('ssf-app-notes');
+const notesSessionData = sessionStorage.getItem('ssf-app-notes');
+console.log(notesSessionData);
 class BookPager extends React.Component<PagerProps> {
+	/*load data*/
+
 	state: Readonly<StateType> = {
 		currentPage: 0,
-		notes: highlightedData,
+		notes: notesSessionData ? JSON.parse(notesSessionData) : noteData,
 		showNotes: false,
+		selected: {},
+		showToolBox: false,
+		toolTipPosition: { top: 0 },
+		highlighted: {},
+		hlColor: 'bg-PrimaryColor-200',
 	};
-	noteRefs = noteData.map(() => createRef<HTMLDivElement>());
+
+	contentRef = createRef<HTMLDivElement>();
+	toolTipRef = createRef<HTMLDivElement>();
+	noteRefs = this.state.notes.map(() => createRef<HTMLDivElement>());
+
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({ showNotes: true });
+		}, 100);
+	}
 
 	setCurrentPage = (page: number) => {
 		this.setState({ currentPage: page });
@@ -42,49 +69,146 @@ class BookPager extends React.Component<PagerProps> {
 		this.setState({ showNotes: !this.state.showNotes });
 	};
 
-	setNotes = (note: HighLightType) => {
-		this.setState({ notes: [...this.state.notes, note] });
+	setHLs = () => {
+		const update = this.handleSelectedActions(this.state.highlighted);
+		this.setState({ highlighted: update, selected: {} });
 	};
 
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({ showNotes: true });
-		}, 100);
-	}
+	handleSelectedActions = (data: highlightType) => {
+		const update = {
+			...data,
+		};
+		Object.keys(this.state.selected).map((pKey) => {
+			if (!update[pKey]) {
+				update[pKey] = {};
+			}
+			Object.keys(this.state.selected[pKey]).map((sKey) => {
+				update[pKey][sKey] = this.state.hlColor;
+			});
+		});
+		return update;
+	};
+	setNotes = () => {
+		const update = this.handleSelectedActions({});
+		console.log(update);
+		const pId = Object.keys(this.state.selected)[0];
+		const sId = Object.keys(this.state.selected[pId])[0];
+		if (sId) {
+			const note: noteType = {
+				id: uuidv4(),
+				color: this.state.hlColor,
+				author: `Author ${uuidv4()}`,
+				title: this.state.selected[pId][sId]?.substring(0, 30),
+				content: 'asdfasdf asdfasdfsadf ',
+				location: {
+					1: {
+						...update,
+					},
+				},
+			};
+			const updateNotes = { notes: [...this.state.notes, note], selected: {} };
+			sessionStorage.setItem(
+				'ssf-app-notes',
+				JSON.stringify(updateNotes.notes)
+			);
+			this.setState({ notes: [...this.state.notes, note], selected: {} });
+			setTimeout(() => {
+				sessionStorage.setItem(
+					'ssf-app-notes',
+					JSON.stringify(updateNotes.notes)
+				);
+				console.log('updated');
+				window.location.reload();
+			}, 200);
+		}
+	};
+
+	handleSelect = (data: {
+		pId: number;
+		sId: number;
+		reference: string;
+		e: { target: HTMLDivElement };
+	}) => {
+		const update: highlightType = { ...this.state.selected };
+		const { pId, sId, reference } = data;
+		let showToolBox = true;
+		let isCancel = false;
+		if (update[pId]) {
+			if (update[pId][sId] && typeof update[pId][sId] === 'string') {
+				update[pId][sId] = undefined;
+				isCancel = true;
+			} else {
+				update[pId][sId] = reference;
+			}
+		} else {
+			update[pId] = {
+				[sId]: reference,
+			};
+		}
+
+		if (isCancel) {
+			let hasObject = false;
+			Object.keys(update).map((p) => {
+				Object.keys(update[p]).map((s) => {
+					if (update[p][s]) {
+						hasObject = typeof update[p][s] !== 'undefined';
+					}
+				});
+			});
+			if (!hasObject) {
+				showToolBox = false;
+			}
+		}
+
+		this.setState({
+			selected: update,
+			showToolBox,
+			// toolTipPosition: toSetPostion,
+			// showToolBox: addListener,
+		});
+	};
+
+	setPickColor = (color: string) => {
+		this.setState({ hlColor: color });
+	};
+
 	render() {
-		const { desiredHeight, desiredWidth, totalHeight, totalWidth, pageCount } =
+		const { desiredHeight, desiredWidth, totalWidth, pageCount, windowWidth } =
 			this.props;
-		const hlMap: hlMapType = {};
-		const ntMap: hlMapType = {};
-		highlightedData &&
-			highlightedData.map((h, i) => {
-				if (h.blkId && hlMap[h.blkId]) {
-					hlMap[h.blkId][h.stcId] = `${i}`;
-				} else {
-					hlMap[h.blkId] = { [h.stcId]: `${i}` };
-				}
-			});
 
-		this.state.notes &&
-			this.state.notes.map((n, i) => {
-				if (n.blkId && ntMap[n.blkId]) {
-					ntMap[n.blkId][n.stcId] = `${i}`;
-				} else {
-					ntMap[n.blkId] = { [n.stcId]: `${i}` };
-				}
-			});
+		const ntHLMap: highlightType = {};
+		const ntRefMap: highlightType = {};
 
+		this.state.notes.map((n, nIndex) => {
+			if (n.location[1]) {
+				Object.keys(n.location[1]).map((pId, pIndex) => {
+					console.log(pId);
+					if (!ntHLMap[pId]) {
+						ntHLMap[pId] = {};
+					}
+					Object.keys(n.location[1][pId]).map((sId, sIndex) => {
+						ntHLMap[pId][sId] = n.location[1][pId][sId];
+						if (pIndex === 0 && sIndex === 0) {
+							if (!ntRefMap[pId]) {
+								ntRefMap[pId] = {};
+							}
+							ntRefMap[pId][sId] = nIndex;
+						}
+					});
+				});
+			}
+		});
 		return (
 			<div className="relative">
-				{this.state.showNotes && (
-					<SideNotes
-						noteRefs={this.noteRefs}
-						windowWidth={this.props.windowWidth}
-						totalWidth={this.props.totalWidth}
-					/>
-				)}
+				<SideNotes
+					noteRefs={this.noteRefs}
+					notes={this.state.notes}
+					totalWidth={totalWidth}
+					windowWidth={windowWidth}
+				/>
 				<div
 					className="overflow-hidden"
+					ref={this.contentRef}
 					style={{
 						width: totalWidth - 20,
 						height: desiredHeight,
@@ -109,44 +233,43 @@ class BookPager extends React.Component<PagerProps> {
 								return (
 									<p key={`${item.id}${uuidv4()}`} className="mt-4 ">
 										{item.c.map((s, i) => {
-											if (ntMap[item.id] && ntMap[item.id][s.id]) {
-												const noteIndex = Number(ntMap[item.id][s.id]);
-												return (
-													<span
-														key={`${s.id}${uuidv4()}`}
-														ref={this.noteRefs[noteIndex]}
-													>
-														<Highlighter
-															searchWords={[s.c]}
-															autoEscape={true}
-															textToHighlight={s.c + ` `}
-														/>
-													</span>
-												);
-											} else if (hlMap[item.id] && hlMap[item.id][s.id]) {
-												return (
-													<Highlighter
-														key={`${s.id}${uuidv4()}`}
-														searchWords={[s.c]}
-														autoEscape={true}
-														textToHighlight={s.c + ' '}
-													/>
-												);
-											} else {
-												return (
-													<span
-														onClick={() => {
-															this.setNotes({
-																blkId: item.id,
-																stcId: s.id,
-															});
-														}}
-														key={`${s.id}${uuidv4()}`}
-													>
-														{s.c}{' '}
-													</span>
-												);
-											}
+											const isSelect =
+												this.state.selected[item.id] &&
+												this.state.selected[item.id][s.id] !== undefined;
+
+											const isHighlighted =
+												this.state.highlighted[item.id] &&
+												this.state.highlighted[item.id][s.id];
+
+											const hlNote = ntHLMap[item.id] && ntHLMap[item.id][s.id];
+											const isNoteRef =
+												ntRefMap[item.id] && ntRefMap[item.id][s.id];
+
+											// const isNote = ntHLMap[item.id] && ntHLMap[item.id][s.id];
+
+											const uid = `${s.id}${uuidv4()}`;
+
+											return (
+												<span
+													ref={
+														typeof isNoteRef === 'number'
+															? this.noteRefs[isNoteRef]
+															: null
+													}
+													onClick={(e: { target: any }) => {
+														this.handleSelect({
+															pId: item.id,
+															sId: s.id,
+															e,
+															reference: s.c,
+														});
+													}}
+													className={`${isSelect ? 'app-underline' : ''} ${isHighlighted ? isHighlighted : ''} ${hlNote ? hlNote : ''}`}
+													key={uid}
+												>
+													{s.c}{' '}
+												</span>
+											);
 										})}
 									</p>
 								);
@@ -154,13 +277,11 @@ class BookPager extends React.Component<PagerProps> {
 						})}
 					</div>
 				</div>
-				<div className="flex w-full justify-between">
+				<div className="flex w-full justify-between h-20">
 					<button
 						onClick={() => {
 							this.setState({ showNotes: false });
 							setTimeout(() => {
-								// this.showButtonRef.current.getBoundingClientRect();
-								// simulateMouseClick(this.showButtonRef.current);
 								this.setState({ showNotes: true });
 							}, 100);
 							if (this.state.currentPage > 0) {
@@ -175,8 +296,6 @@ class BookPager extends React.Component<PagerProps> {
 							if (this.state.currentPage < pageCount - 1) {
 								this.setState({ showNotes: false });
 								setTimeout(() => {
-									// this.showButtonRef.current.getBoundingClientRect();
-									// simulateMouseClick(this.showButtonRef.current);
 									this.setState({ showNotes: true });
 								}, 100);
 								this.setCurrentPage(this.state.currentPage + 1);
@@ -186,6 +305,25 @@ class BookPager extends React.Component<PagerProps> {
 						Next
 					</button>
 				</div>
+				{this.state.showToolBox && (
+					<div
+						className="bg-white w-full"
+						ref={this.toolTipRef}
+						style={{
+							position: 'absolute',
+							left: 0,
+							right: 0,
+							bottom: 0,
+						}}
+					>
+						<BookToolBox
+							setHLs={this.setHLs}
+							color={this.state.hlColor}
+							setColor={this.setPickColor}
+							setNotes={this.setNotes}
+						/>
+					</div>
+				)}
 			</div>
 		);
 	}

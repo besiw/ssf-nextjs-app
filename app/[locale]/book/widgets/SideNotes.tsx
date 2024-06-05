@@ -1,7 +1,11 @@
+import SideNoteBlock from './SideNoteBlock';
+import { noteType } from '../type';
+import { number } from 'zod';
 type SideNoteProps = {
 	noteRefs: React.RefObject<HTMLDivElement>[];
 	windowWidth: number;
 	totalWidth: number;
+	notes: noteType[];
 };
 
 type NotePositionType = {
@@ -9,12 +13,14 @@ type NotePositionType = {
 	top: number;
 	left: number | undefined;
 	right: number | undefined;
+	onLeft: boolean;
 };
 const sideColWidthMax = 320;
 const SideNotes: React.FC<SideNoteProps> = ({
 	noteRefs,
 	totalWidth,
 	windowWidth,
+	notes,
 }) => {
 	const getNotePosition = (index: number) => {
 		const el = noteRefs[index].current;
@@ -27,11 +33,12 @@ const SideNotes: React.FC<SideNoteProps> = ({
 				top: top - 100,
 				left: undefined,
 				right: undefined,
+				onLeft: x < windowWidth / 2,
 			};
-			if (x < 320 + totalWidth / 2) {
+			if (x < windowWidth / 2) {
 				result.left = -sideColWidthMax;
 			} else {
-				result.right = -sideColWidthMax;
+				result.right = -sideColWidthMax - 16;
 			}
 
 			return result;
@@ -42,10 +49,10 @@ const SideNotes: React.FC<SideNoteProps> = ({
 		<>
 			{noteRefs.map((item, index) => {
 				const d = getNotePosition(index);
-				console.log(d);
+				const note = notes[index];
 				return (
 					<div className="absolute w-80" key={index} style={{ ...d }}>
-						asdf
+						<SideNoteBlock {...note} left={d?.onLeft} />
 					</div>
 				);
 			})}

@@ -1,5 +1,5 @@
 'use client';
-
+import './content.css';
 import { useRef } from 'react';
 import { useDimensions } from '@/components/useDimensions';
 import { useWindowDimensions } from '@/components/useWindowDimensions';
@@ -12,7 +12,7 @@ export default function Content() {
 	const { width, height: totalHeight } = useDimensions(ref);
 	const { height: windowHeight, width: windowWidth } = useWindowDimensions();
 	let desiredWidth = width / 2 - 10;
-	const desiredHeight = windowHeight - 100 - 50;
+	const desiredHeight = windowHeight - 100 - 90;
 	const pageCount = Math.floor(totalHeight / desiredHeight) + 1;
 
 	return (

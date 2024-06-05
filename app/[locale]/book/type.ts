@@ -13,21 +13,21 @@ export interface contentDataType {
 	}[];
 }
 
-export type HighLightType = {
-	blkId: number;
-	stcId: number;
-	color?: string;
-};
-export type NoteType = {
-	bookId: number;
-	chapId: number;
-	blkId: number;
-	stcId: number;
-	author: {
-		id: number;
-		name: string;
+export type highlightType = {
+	[pId: string]: {
+		[sId: string]: string | undefined;
 	};
-	c: string[];
+};
+
+export type noteType = {
+	id: number;
+	author: string;
+	color: string;
+	title?: string;
+	content: string;
+	location: {
+		[cId: string]: highlightType;
+	};
 };
 
 export type hlMapType = {
@@ -38,6 +38,6 @@ export type hlMapType = {
 
 export type ntMapType = {
 	[key: number]: {
-		[key: number]: NoteType;
+		[key: number]: noteType;
 	};
 };
