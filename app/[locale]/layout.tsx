@@ -3,7 +3,7 @@ import { Inter, Cormorant, Cormorant_Garamond } from "next/font/google";
 import "../globals.css";
 import SideNav from "@/components/SideNav";
 import ButtomNav from "@/components/BottomNav";
-import { cormorant, inter } from "@/components/font/font";
+import { cormorant, inter } from "@/components/font";
 type FontObject = {
   className: string;
 };

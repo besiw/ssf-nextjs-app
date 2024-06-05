@@ -2,7 +2,7 @@ import MainTemplate from "@/components/MainTemplate";
 import BookContent from "./BookContent";
 import BooksTitle from "./BooksTitle";
 import NoteColBlk from "./widgets/NoteColBlk";
-import Notebook from "@/components/book/note/Notebook";
+import BooksAnnotate from "@/components/book/BooksAnnotate/BooksAnnotate";
 export default function Home() {
   return (
     <>
@@ -18,13 +18,13 @@ export default function Home() {
         RightColumn={<div />}
         MainSection={<BookContent />}
       /> */}
-      {/* <NoteColBlk
+      <NoteColBlk
         title="‘Lorem ipsum dolor sit amet...’"
         content="Lorem ipsum dolor sit amet consectetur. Tortor vulputate cursus lobortis consequat congue."
         color="bg-pink-200"
         userName="Burcu A."
-      /> */}
-      <Notebook />
+      />
+      {/* <BooksAnnotate title="Hidden Treasure 1956 / 09" /> */}
     </>
   );
 }
