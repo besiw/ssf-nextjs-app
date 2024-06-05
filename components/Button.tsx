@@ -1,4 +1,4 @@
-import { inter } from "./font/font";
+import { inter } from "./font";
 
 type buttoncontentProps = {
   buttonTitle: string;
