@@ -136,7 +136,11 @@ export default function Content() {
 	const { width: windowWidth } = useWindowDimensions();
 	const noteWidth = (windowWidth - 80 - width) / 2;
 	return (
-		<div className={`w-full ${cormorant.className}`} ref={containerRef}>
+		<div
+			className={`w-full ${cormorant.className} `}
+			ref={containerRef}
+			style={{ maxWidth: '730px' }}
+		>
 			<h1> {contentData.chapter.title}</h1>
 			{contentData.c.map((item) => {
 				if (item.type === 'p') {
@@ -178,7 +182,7 @@ export default function Content() {
 								const isLeft = isNoteRef % 2 === 0;
 								return typeof isNoteRef === 'number' ? (
 									<>
-										<div className="relative hidden lg:block" key={uid}>
+										<div className="relative hidden 1.6lg:block" key={uid}>
 											<div
 												className="absolute bg-primaryColor-200"
 												style={{

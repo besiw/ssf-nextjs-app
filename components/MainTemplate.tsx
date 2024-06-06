@@ -23,13 +23,13 @@ const MainTemplate: React.FC<MainTemplateProps> = ({
 				className={`flex flex-row flex-1 ${scroll ? 'overflow-y-scroll' : ''}`}
 			>
 				{LeftColumn && (
-					<div className="w-full md:w-64 md:min-w-64 lg:w-80 lg:min-w-80">
+					<div className="flex-1 1.6lg:block 1.6lg:w-64 1.6lg:min-w-64 xl:w-80 xl:min-w-80">
 						{LeftColumn}
 					</div>
 				)}
-				{MainSection && <div className="flex-1">{MainSection}</div>}
+				{MainSection && <div className="flex-2">{MainSection}</div>}
 				{RightColumn && (
-					<div className="w-full md:w-64 md:min-w-64 lg:w-80 lg:min-w-80">
+					<div className="flex-1 1.6lg:block 1.6lg:w-64 1.6lg:min-w-64 xl:w-80 xl:min-w-80">
 						{RightColumn}
 					</div>
 				)}

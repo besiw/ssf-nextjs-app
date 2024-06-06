@@ -10,7 +10,15 @@ export default function Home() {
 	return (
 		<MainTemplate
 			scroll
-			TopSection={<BooksFilter />}
+			TopSection={
+				showFilter && (
+					<BooksFilter
+						onFilterClick={() => {
+							setShowFilter(!showFilter);
+						}}
+					/>
+				)
+			}
 			LeftColumn={<FilterSide />}
 			MainSection={<BookList isFilterOpen />}
 		/>
