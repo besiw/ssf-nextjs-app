@@ -3,140 +3,154 @@
 import React from 'react';
 import book1 from '@/assets/img/book1.png';
 import Books from '../../../../components/book/Books';
-export default function Bookbody() {
+
+type BooksListProps = {
+	isFilterOpen?: boolean;
+};
+const BooksList: React.FC<BooksListProps> = ({ isFilterOpen }) => {
+	console.log(isFilterOpen);
 	return (
-		<div
-			className="w-full overflow-y-scroll"
-			style={{ height: 'calc(100vh - 56px)' }}
-		>
-			<div className="flex mx-auto max-w-950 0.5sm:w-354 1.5lg:w-734 1.6lg:w-950 flex-wrap pb-20">
+		<div className="w-full">
+			<div
+				className={`flex mx-auto flex-wrap pb-20`}
+				style={{
+					maxWidth: isFilterOpen ? 700 : 1100,
+				}}
+			>
 				{[
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'Stykker og referater i fornyet utgave fra Skjulte Skatter av Johan O. Smith',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'Apostelen ',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
 					{
 						img: book1,
 						text: 'The hunt for Sigurd Jorsalfare',
 						author: 'Morten, Øystein',
-						age: '1971',
+						year: '1971',
 					},
-				].map((i, index) => {
+				].map((book, index) => {
 					return (
-						<Books key={index} path={i.img} text={i.text} author={i.author} />
+						<Books
+							key={index}
+							path={book.img}
+							{...book}
+							width={isFilterOpen ? ' lg:w-1/2 ' : ' lg:w-1/3 '}
+						/>
 					);
 				})}
 			</div>
 		</div>
 	);
-}
+};
+
+export default BooksList;

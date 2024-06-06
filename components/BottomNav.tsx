@@ -53,7 +53,8 @@ function Bottoncolum() {
                   alt={i.text}
                   className="mx-auto"
                 />
-                <div className={`text-center text-10 text-black-100`}>
+                <div
+                  className={`text-center text-10 ${isActive && "text-PrimaryColor-200"}`}>
                   {i.text}
                 </div>
               </div>
