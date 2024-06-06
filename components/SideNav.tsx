@@ -18,7 +18,7 @@ function SideNav() {
 	return (
 		<div className="h-screen hidden 1.5xl:flex flex-col w-full md:w-20 pt-7 bg-gray-200">
 			<div className="flex-1">
-				<div className="px-9">
+				<div className="w-full mx-auto flex justify-center">
 					<Image
 						src={ssfLogo}
 						width={'46'}

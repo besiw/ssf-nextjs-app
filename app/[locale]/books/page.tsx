@@ -8,9 +8,10 @@ export default function Home() {
 
 	return (
 		<MainTemplate
+			scroll
 			TopSection={<div></div>}
 			LeftColumn={<FilterSide />}
-			MainSection={<BookList />}
+			MainSection={<BookList isFilterOpen />}
 		/>
 	);
 }
