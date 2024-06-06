@@ -60,7 +60,7 @@ function Bottoncolum() {
           return (
             <Link key={index} className="items-center m-auto" href={i.path}>
               <div
-                className={`w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-200"}`}>
+                className={`md:hidden w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-200"}`}>
                 <Image
                   src={isActive ? i.imageSrc2 : i.imageSrc}
                   width={"24"}
@@ -72,6 +72,17 @@ function Bottoncolum() {
                   className={`text-center text-10  ${isActive ? "text-PrimaryColor-200" : "text-black-100"}`}>
                   {i.text}
                 </div>
+              </div>
+              <div
+                className={`hidden md:flex w-16 h-16 rounded-2xl  flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-200"}`}>
+                <Image
+                  src={i.imageSrc}
+                  width={"24"}
+                  height={"24"}
+                  alt={i.text}
+                  className="mx-auto"
+                />
+                <div className={`text-center text-10 `}>{i.text}</div>
               </div>
             </Link>
           );

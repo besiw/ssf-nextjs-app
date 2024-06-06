@@ -100,6 +100,7 @@ const config: Config = {
       "9xl": "9.6rem",
       "10xl": "12.8rem",
       "8": "0.8rem",
+      "15px": "15px",
       "10": "1rem",
       "11": "1.1rem",
       "11.5": "1.125rem",
