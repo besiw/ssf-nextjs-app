@@ -1,13 +1,14 @@
-'use client';
+"use client";
 
-import MainTemplate from '@/components/MainTemplate';
-import BookContent from './widgets/BookContent';
-import BooksTitle from './widgets/BooksTitle';
+import MainTemplate from "@/components/MainTemplate";
+import BookContent from "./widgets/BookContent";
+import BooksTitle from "./widgets/BooksTitle";
+import BooksFilter from "@/components/book/BooksFilter";
 
 export default function Home() {
-	return (
-		<>
-			<MainTemplate
+  return (
+    <>
+      {/* <MainTemplate
 				scroll
 				TopSection={
 					<BooksTitle
@@ -19,7 +20,8 @@ export default function Home() {
 				LeftColumn={<div />}
 				RightColumn={<div />}
 				MainSection={<BookContent />}
-			/>
-		</>
-	);
+			/> */}
+      <BooksFilter />
+    </>
+  );
 }
