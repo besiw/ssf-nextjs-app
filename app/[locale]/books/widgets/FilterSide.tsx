@@ -15,7 +15,7 @@ export default function Sidebar() {
 	const {
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+	// const onSubmit = (data) => console.log(data);
 
 	return (
 		<div className="px-4">
