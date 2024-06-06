@@ -21,7 +21,7 @@ export default function Home() {
 				RightColumn={<div />}
 				MainSection={<BookContent />}
 			/> */}
-      <BooksFilter />
+      <BooksTitle bookTitle={"111"} bookAuthor={"2223"} />
     </>
   );
 }

@@ -19,7 +19,7 @@ function Bottoncolum() {
                     bg-gray-75
                     z-10 
                     mx-auto
-                    justify-between 
+                    justify-between
                     relative 
                     mix-blend-normal 
                     w-full 
@@ -30,7 +30,7 @@ function Bottoncolum() {
                     px-4 
                     md:w-621">
         {[
-          { imageSrc: home, text: "Home", path: "/book" },
+          { imageSrc: home, imageSrc2: home2, text: "Home", path: "/" },
           { imageSrc: books, text: "Library", path: "/books" },
           {
             imageSrc: magazine,
@@ -41,18 +41,19 @@ function Bottoncolum() {
           { imageSrc: more, text: "More", path: "/book" },
         ].map((i, index) => {
           const isActive = currentPath === i.path;
+          console.log(isActive);
           return (
             <Link key={index} className="items-center m-auto" href={i.path}>
               <div
-                className={`w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && " bg-PrimaryColor-200"}`}>
+                className={`w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-200"}`}>
                 <Image
-                  src={i.imageSrc}
+                  src={isActive ? i.imageSrc2 : i.imageSrc}
                   width={"24"}
                   height={"24"}
                   alt={i.text}
                   className="mx-auto"
                 />
-                <div className="text-center text-10 text-black-100">
+                <div className={`text-center text-10 text-black-100`}>
                   {i.text}
                 </div>
               </div>
