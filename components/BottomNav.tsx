@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import home from "@/assets/svg/home-outline-black.svg";
 import home2 from "@/assets/svg/home-outline-PrimaryColor.svg";
 import books from "@/assets/svg/book-outline-black.svg";
+import books2 from "@/assets/svg/book-outline-PrimaryColor.svg";
 import magazine from "@/assets/svg/open-book-outline-black.svg";
+import magazine2 from "@/assets/svg/open-book-outline-PrimaryColor.svg";
 import search from "@/assets/svg/search-outline-black.svg";
+import search2 from "@/assets/svg/search-outline-PrimaryColor.svg";
 import more from "@/assets/svg/more-outline-black.svg";
+import more2 from "@/assets/svg/more-outline-PrimaryColor.svg";
 import Image from "next/image";
 import { Link, usePathname } from "@/middleware";
 function Bottoncolum() {
@@ -31,14 +35,25 @@ function Bottoncolum() {
                     md:w-621">
         {[
           { imageSrc: home, imageSrc2: home2, text: "Home", path: "/" },
-          { imageSrc: books, text: "Library", path: "/books" },
+          {
+            imageSrc: books,
+            imageSrc2: books2,
+            text: "Library",
+            path: "/books",
+          },
           {
             imageSrc: magazine,
+            imageSrc2: magazine2,
             text: "Magazine",
             path: "/hidden-treasure",
           },
-          { imageSrc: search, text: "Search", path: "/search" },
-          { imageSrc: more, text: "More", path: "/book" },
+          {
+            imageSrc: search,
+            imageSrc2: search2,
+            text: "Search",
+            path: "/search",
+          },
+          { imageSrc: more, imageSrc2: more2, text: "More", path: "/book" },
         ].map((i, index) => {
           const isActive = currentPath === i.path;
           console.log(isActive);
