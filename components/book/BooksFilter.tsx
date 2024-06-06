@@ -12,7 +12,7 @@ export default function BooksFilter() {
           setOnSubmit(!onsubmit);
         }}>
         <div
-          className={`flex py-2 px-3 mr-6 rounded-2xl justify-center items-center bg-PrimaryColor-200 ${onsubmit && "bg-PrimaryColor-diaphaneity12"} `}>
+          className={`flex py-2 px-3 mr-6 rounded-2xl justify-center items-center  bg-PrimaryColor-200 ${onsubmit && "bg-PrimaryColor-diaphaneity12"} `}>
           <Image src={onsubmit ? filter2 : filter} alt="" className={`mr-3`} />
           <div className={`text-12 text-white ${onsubmit && "text-black-200"}`}>
             Filter
