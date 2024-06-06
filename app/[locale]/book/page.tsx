@@ -3,12 +3,11 @@
 import MainTemplate from "@/components/MainTemplate";
 import BookContent from "./widgets/BookContent";
 import BooksTitle from "./widgets/BooksTitle";
-import BooksFilter from "@/components/book/BooksFilter";
 
 export default function Home() {
   return (
     <>
-      <MainTemplate
+      {/* <MainTemplate
         scroll
         TopSection={
           <BooksTitle
@@ -20,8 +19,11 @@ export default function Home() {
         LeftColumn={<div />}
         RightColumn={<div />}
         MainSection={<BookContent />}
+      /> */}
+      <BooksTitle
+        bookTitle={"Apostelen Paulus' formaninger "}
+        bookAuthor={"Forord av Kåre J. Smith"}
       />
-      {/* <BooksTitle bookTitle={"111"} bookAuthor={"2223"} /> */}
     </>
   );
 }
