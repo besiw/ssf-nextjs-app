@@ -1,26 +1,35 @@
 'use client';
 import { useState } from 'react';
-import MainTemplate from '@/components/MainTemplate';
-import BookList from '@/app/[locale]/books/widgets/BooksList';
-import FilterSide from '@/app/[locale]/books/widgets/FilterSide';
-import BooksFilter from '@/app/[locale]/books/widgets/BooksFilter';
-export default function Home() {
-	const [showFilter, setShowFilter] = useState(false);
+import Header from './parts/BooksHeader';
+import Filter from './parts/Filter';
+import BookList from './parts/BooksList';
+import bookData from '@/app/mockData/allbooks';
 
+export default function Books() {
+	const [showFilter, setShowFilter] = useState(false);
+	const handleFilterClick = () => {
+		setShowFilter(!showFilter);
+	};
 	return (
-		<MainTemplate
-			scroll
-			TopSection={
-				showFilter && (
-					<BooksFilter
-						onFilterClick={() => {
-							setShowFilter(!showFilter);
-						}}
-					/>
-				)
-			}
-			LeftColumn={<FilterSide />}
-			MainSection={<BookList isFilterOpen />}
-		/>
+		<>
+			<Header onFilterClick={handleFilterClick} showFilter={showFilter} />
+			<div className="w-full flex">
+				{showFilter && (
+					<div className="w-full md:w-64 xl:w-80">
+						<Filter />
+					</div>
+				)}
+				{!showFilter && (
+					<div className=" md:hidden mx-auto flex-1">
+						<BookList books={bookData} isFilterOpen={showFilter} />{' '}
+					</div>
+				)}
+				<div
+					className={`hidden md:block mx-auto flex-1 md:max-w-3xl ${showFilter ? '' : 'xl:max-w-5xl'}`}
+				>
+					<BookList books={bookData} isFilterOpen={showFilter} />{' '}
+				</div>
+			</div>
+		</>
 	);
 }

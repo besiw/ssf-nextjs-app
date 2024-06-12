@@ -1,11 +1,29 @@
 {
-  "Home": {
-    "navigation": {
-      "home": "Home",
-      "about": "About",
-      "contact": "Contact Us"
-    },
-    "title": "Internationalization(i18n) in Next.js 14",
-    "description": "Next.js 14 introduces enhanced internationalization (i18n) features, empowering developers to effortlessly manage translations, locale-based routing, and content localization for globally accessible web applications. <br /> <br />This also piggy-backs built-in support for multiple locales, dynamic content loading, and robust fallback handling."
-  }
+	"Navigation": {
+		"home": "Home",
+		"books": "Books",
+		"hidden-treasure": "Hidden Treasure",
+		"search": "Search",
+		"more": "More"
+	},
+	"Metadata": {
+		"title": "Hidden Treasures Foundation Publishers (HTFP)",
+		"description": "Stiftelsen Skjulte Skatters Forlag (SSSF) / Hidden Treasures Foundation Publishers (HTFP) was established by Johan Oscar Smith on the 1st of January, 1912, when he started the paper Hidden Treasures with his brother, dentist Aksel Smith. Literature and intellectual works from SSSF have, since 1912, mainly been written and composed by members of Brunstad Christian Church (BCC)."
+	},
+	"books": {
+		"title": "Books"
+	},
+	"tools": {
+		"filter": "Filter",
+		"index": "Index",
+		"search": "Search",
+		"bookmark": "Bookmark",
+		"notes": "Notes",
+		"highlights": "Highlights",
+		"copy": "Copy",
+		"share": "Share",
+		"save": "Save",
+		"close": "Close",
+		"cancel": "Cancel"
+	}
 }

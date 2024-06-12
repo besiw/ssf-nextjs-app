@@ -1,35 +1,44 @@
-import type { Metadata } from 'next';
-import { Inter, Cormorant, Cormorant_Garamond } from 'next/font/google';
 import '../globals.css';
-import SideNav from '@/components/SideNav';
-import ButtomNav from '@/components/BottomNav';
-import { cormorant, inter } from '@/components/font';
-type FontObject = {
-	className: string;
+
+import { NextIntlClientProvider } from 'next-intl';
+import { getTranslations, getMessages } from 'next-intl/server';
+import DesktopNav from '@/components/Navs/DesktopNav';
+import MobileNav from '@/components/Navs/MobileNav';
+import { inter } from '@/options/font';
+import { localesType } from '@/options/navigation';
+type Props = {
+	params: { locale: localesType };
 };
 
-export const metadata: Metadata = {
-	title: 'Enhanced Internationalization(i18n) in Next.js 14',
-	description:
-		'A guide on how to setup enhanced Internationalization(i18n) in Next.js 14',
-};
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: 'Metadata' });
+	return {
+		title: t('title'),
+	};
+}
 
 interface RootLayoutProps {
 	children: React.ReactNode;
 	locale: never;
 }
 
-export default function RootLayout({ children, locale }: RootLayoutProps) {
+export default async function RootLayout({
+	children,
+	locale,
+}: RootLayoutProps) {
+	const messages = await getMessages();
 	return (
 		<html lang={locale}>
 			<body className={`${inter.className} flex h-screen md:h-auto md:w-auto`}>
-				<SideNav />
-				<ButtomNav />
-				<main
-					className={`flex-1 h-screen max-h-screen w-screen max-w-screen overflow-hidden `}
-				>
-					{children}
-				</main>
+				<NextIntlClientProvider messages={messages}>
+					<DesktopNav />
+					<MobileNav />
+					<main
+						className={`flex-1 h-screen max-h-screen w-screen max-w-screen overflow-y-scroll `}
+					>
+						{children}
+					</main>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);
