@@ -1,29 +1,31 @@
 {
-	"Navigation": {
-		"home": "Hjem",
-		"books": "Bøker",
-		"hidden-treasure": "Skjulte Skatter",
-		"search": "Søk",
-		"more": "Mer"
-	},
-	"Metadata": {
-		"title": "Stiftelsen Skjulte Skatters Forlag (SSSF)",
-		"description": "Stiftelsen Skjulte Skatters Forlag (SSSF) ble opprettet av Johan Oscar Smith den 1. januar 1912, ved at han startet bladet Skjulte Skatter sammen med sin bror, tannlege Aksel Smith. Litteratur og åndsverk fra SSSF er hovedsakelig forfattet og komponert av medlemmer i Brunstad Christian Church (BCC), opp gjennom tidene siden 1912."
-	},
-	"books": {
-		"title": "Bøker"
-	},
-	"tools": {
-		"filter": "Filter",
-		"index": "Index",
-		"search": "Søk",
-		"bookmark": "Bookmark",
-		"notes": "Notater",
-		"highlights": "Highlights",
-		"copy": "Kopier",
-		"share": "Del",
-		"save": "Lagre",
-		"close": "Lukk",
-		"cancel": "Avbryt"
-	}
+  "Navigation": {
+    "home": "Hjem",
+    "books": "Bøker",
+    "hidden-treasure": "Skjulte Skatter",
+    "search": "Søk",
+    "more": "Mer"
+  },
+  "Metadata": {
+    "title": "Stiftelsen Skjulte Skatters Forlag (SSSF)",
+    "description": "Stiftelsen Skjulte Skatters Forlag (SSSF) ble opprettet av Johan Oscar Smith den 1. januar 1912, ved at han startet bladet Skjulte Skatter sammen med sin bror, tannlege Aksel Smith. Litteratur og åndsverk fra SSSF er hovedsakelig forfattet og komponert av medlemmer i Brunstad Christian Church (BCC), opp gjennom tidene siden 1912."
+  },
+  "books": {
+    "title": "Bøker"
+  },
+  "tools": {
+    "article": "artikkel",
+    "library": "BIBLIOTEK",
+    "filter": "Filter",
+    "index": "Index",
+    "search": "Søk",
+    "bookmark": "Bookmark",
+    "notes": "Notater",
+    "highlights": "Highlights",
+    "copy": "Kopier",
+    "share": "Del",
+    "save": "Lagre",
+    "close": "Lukk",
+    "cancel": "Avbryt"
+  }
 }

@@ -1,29 +1,31 @@
 {
-	"Navigation": {
-		"home": "Home",
-		"books": "Books",
-		"hidden-treasure": "Hidden Treasure",
-		"search": "Search",
-		"more": "More"
-	},
-	"Metadata": {
-		"title": "Hidden Treasures Foundation Publishers (HTFP)",
-		"description": "Stiftelsen Skjulte Skatters Forlag (SSSF) / Hidden Treasures Foundation Publishers (HTFP) was established by Johan Oscar Smith on the 1st of January, 1912, when he started the paper Hidden Treasures with his brother, dentist Aksel Smith. Literature and intellectual works from SSSF have, since 1912, mainly been written and composed by members of Brunstad Christian Church (BCC)."
-	},
-	"books": {
-		"title": "Books"
-	},
-	"tools": {
-		"filter": "Filter",
-		"index": "Index",
-		"search": "Search",
-		"bookmark": "Bookmark",
-		"notes": "Notes",
-		"highlights": "Highlights",
-		"copy": "Copy",
-		"share": "Share",
-		"save": "Save",
-		"close": "Close",
-		"cancel": "Cancel"
-	}
+  "Navigation": {
+    "home": "Home",
+    "books": "Books",
+    "hidden-treasure": "Hidden Treasure",
+    "search": "Search",
+    "more": "More"
+  },
+  "Metadata": {
+    "title": "Hidden Treasures Foundation Publishers (HTFP)",
+    "description": "Stiftelsen Skjulte Skatters Forlag (SSSF) / Hidden Treasures Foundation Publishers (HTFP) was established by Johan Oscar Smith on the 1st of January, 1912, when he started the paper Hidden Treasures with his brother, dentist Aksel Smith. Literature and intellectual works from SSSF have, since 1912, mainly been written and composed by members of Brunstad Christian Church (BCC)."
+  },
+  "books": {
+    "title": "Books"
+  },
+  "tools": {
+    "article": "ARTICLE",
+    "library": "LIBRARY",
+    "filter": "Filter",
+    "index": "Index",
+    "search": "Search",
+    "bookmark": "Bookmark",
+    "notes": "Notes",
+    "highlights": "Highlights",
+    "copy": "Copy",
+    "share": "Share",
+    "save": "Save",
+    "close": "Close",
+    "cancel": "Cancel"
+  }
 }
