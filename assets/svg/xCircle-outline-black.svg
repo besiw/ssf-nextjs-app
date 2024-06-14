@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+					>
+						<path
+							stroke="rgba(0, 0, 0, 1)"
+							strokeWidth="2"
+							strokeLinejoin="round"
+							strokeLinecap="round"
+							d="M18 6L6 18"
+						></path>
+						<path
+							stroke="rgba(0, 0, 0, 1)"
+							strokeWidth="2"
+							strokeLinejoin="round"
+							strokeLinecap="round"
+							d="M6 6L18 18"
+						></path>
+					</svg>

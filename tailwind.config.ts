@@ -41,6 +41,7 @@ const config: Config = {
     },
     colors: {
       gray: {
+        30: "rgba(249, 249, 249,0.3)",
         50: "#FAFAFA",
         75: "#F9F9F9",
         100: "#F5F5F5",
