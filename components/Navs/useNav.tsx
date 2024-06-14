@@ -9,7 +9,6 @@ import search2 from '@/assets/svg/search-outline-PrimaryColor.svg';
 import more from '@/assets/svg/more-outline-black.svg';
 import more2 from '@/assets/svg/more-outline-PrimaryColor.svg';
 import { useTranslations } from 'next-intl';
-import { pathnames } from '@/options/navigation';
 export type navItemType = {
 	title: string;
 	icon: string;
@@ -23,27 +22,27 @@ const useNav = () => {
 			title: t('home'),
 			icon: home,
 			activeIcon: home2,
-			path: pathnames['/'],
+			path: '/',
 		},
 		{
 			title: t('books'),
 			icon: books,
 			activeIcon: books2,
-			path: pathnames['/books'].en,
+			path: '/books',
 		},
 		{
 			title: t('hidden-treasure'),
 			icon: magazine,
 			activeIcon: magazine2,
-			path: pathnames['/hidden-treasure'].en,
+			path: '/hidden-treasure',
 		},
 		{
 			title: t('search'),
 			icon: search,
 			activeIcon: search2,
-			path: pathnames['/search'].en,
+			path: '/search',
 		},
-		{ title: t('more'), icon: more, activeIcon: more2, path: pathnames['/'] },
+		{ title: t('more'), icon: more, activeIcon: more2, path: '/' },
 	];
 	return nav;
 };

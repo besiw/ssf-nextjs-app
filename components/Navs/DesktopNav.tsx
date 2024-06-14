@@ -37,7 +37,7 @@ function SideNav() {
 							<Link
 								className="flex flex-row justify-start"
 								key={index}
-								href={i.path}
+								href={i.path as '/'}
 							>
 								<div
 									className={`w-14 h-14 flex items-center rounded-2xl justify-center ${isActive && ' bg-PrimaryColor-12'}`}

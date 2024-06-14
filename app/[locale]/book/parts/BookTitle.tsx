@@ -15,7 +15,6 @@ import Modal from '@/components/Modals';
 
 import Image from 'next/image';
 import { Link } from '@/options/navigation';
-import { pathnames } from '@/options/navigation';
 import { useState, useRef } from 'react';
 import { cormorant_Garamond, inter } from '@/options/font';
 import { IconTextBotton, CircleButton } from '@/components/Button';
@@ -53,7 +52,7 @@ const BooksTitle: React.FC<BooksTitleProps> = ({
 			{show && <Modal />}
 			<div className="relative px-5 py-4 hidden md:flex w-full justify-center">
 				<Link
-					href={pathnames['/books'].en}
+					href='/books'
 					className="flex absolute left-4 pt-1"
 				>
 					<Image src={arrowleft} alt="" />
@@ -115,7 +114,7 @@ const BooksTitle: React.FC<BooksTitleProps> = ({
 			<div className="px-5 md:hidden">
 				<div className={`flex justify-between py-4 ${inter.className}`}>
 					<div className="flex items-center ">
-						<Link href={pathnames['/books'].en} className="">
+						<Link href='/books'>
 							<Image src={chevronleft} alt="" />
 						</Link>
 						<button className="flex items-center ">

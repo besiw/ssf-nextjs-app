@@ -389,7 +389,7 @@ export type HighlightType = {
 
 export const noteData: noteType[] = [
   {
-    id: 1,
+    id: '8447f245-416b-4791-90c5-64ffeb96f1ee',
     color: "bg-green-200",
     author: " Kåre J. Smith",
     title: "referece .....",

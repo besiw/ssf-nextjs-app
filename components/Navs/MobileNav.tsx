@@ -33,7 +33,7 @@ function MobileNav() {
 						<Link
 							key={index}
 							className={`m-auto ${inter.className}`}
-							href={i.path}
+							href={i.path as '/'}
 						>
 							<div
 								className={`md:hidden w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && 'md:bg-PrimaryColor'}`}

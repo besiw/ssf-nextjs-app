@@ -16,7 +16,6 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { inter } from "@/options/font";
 import { IconTextBotton, CircleButton } from "@/components/Button";
-import { Link, pathnames } from "@/options/navigation";
 import { useSearchParams } from "next/navigation";
 const BooksFilter: React.FC<{
   onFilterClick: () => void;
