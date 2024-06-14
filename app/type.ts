@@ -73,6 +73,15 @@ export type hlMapType = {
   };
 };
 
+export type bookMarkTpye = {
+  title: string;
+  note: string;
+  bookContent: string;
+  color: string;
+  icon: string;
+  time: string;
+};
+
 export type ntMapType = {
   [key: number]: {
     [key: number]: noteType;

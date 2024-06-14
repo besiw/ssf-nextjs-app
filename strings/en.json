@@ -14,6 +14,7 @@
     "title": "Books"
   },
   "tools": {
+    "activities": "ACTIVITIES",
     "article": "ARTICLE",
     "library": "LIBRARY",
     "filter": "Filter",
