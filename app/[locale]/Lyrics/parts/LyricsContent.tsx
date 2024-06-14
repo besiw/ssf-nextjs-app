@@ -18,17 +18,17 @@ const LyricsContent: React.FC<LyricsList> = ({ isFilterOpen, list, info }) => {
           <hr className="w-full mx-5 border-PrimaryColor" />
         </div>
         <div className="md:hover:bg-PrimaryColor-12 md:bg-gray-30 md:max-w-xl md:w-full md:rounded-2xl md:mt-8">
-          <h2
+          <section
             className={`flex flex-col pl-6 text-base font-medium ${cormorant.className} `}>
-            <div>Besteciler:{info.band}</div>
-            <div>Çıkış tarihi:{info.dateComposition}</div>
-            <div>Sanatçı:{info.artist}</div>
-            <div>Albüm:{info.record}</div>
-            <div>Tür:{info.musictype}</div>
+            <p>Besteciler:{info.band}</p>
+            <p>Çıkış tarihi:{info.dateComposition}</p>
+            <p>Sanatçı:{info.artist}</p>
+            <p>Albüm:{info.record}</p>
+            <p>Tür:{info.musictype}</p>
             <div className="py-4">
               <hr className="w-16 border-PrimaryColor" />
             </div>
-          </h2>
+          </section>
           {list.map((li, index) => {
             return (
               <>
