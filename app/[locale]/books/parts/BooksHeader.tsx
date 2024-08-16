@@ -16,7 +16,7 @@ const BooksFilter: React.FC<{
   };
 
   return (
-    <nav className="relative flex justify-center md:justify-start items-center md:pl-5 md:py-8">
+    <div className="relative flex justify-center md:justify-start items-center md:pl-5 md:py-8 dark:text-white-darckText">
       <IconTextBotton
         onClick={handleClick}
         icon={filter}
@@ -38,7 +38,7 @@ const BooksFilter: React.FC<{
       <div className={`${inter.className} uppercase py-4`}>
         {stringBooks("title")}
       </div>
-    </nav>
+    </div>
   );
 };
 

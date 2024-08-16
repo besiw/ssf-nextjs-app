@@ -34,7 +34,7 @@ export default async function RootLayout({
 					<DesktopNav />
 					<MobileNav />
 					<main
-						className={`flex-1 h-screen max-h-screen w-screen max-w-screen overflow-y-scroll `}
+						className={`flex-1 h-screen max-h-screen w-screen max-w-screen overflow-y-scroll pb-32`}
 					>
 						{children}
 					</main>

@@ -19,9 +19,13 @@ const config: Config = {
       spacing: {
         px: "1px",
         19: "4.6875rem",
+        100: "25rem",
         272: "17rem",
         354: "22.125rem",
+        440: "27.5rem",
+        548: "34.25rem",
         621: "38.8rem",
+        642: "40.125rem",
         734: "45.875rem",
         950: "59.375rem",
       },
@@ -38,10 +42,13 @@ const config: Config = {
       screens: {
         "1.5xl": "1360px",
       },
+      fontSize: {
+        "16px": "16px",
+        sm: "0.8rem",
+      },
     },
     colors: {
       gray: {
-        30: "rgba(249, 249, 249,0.3)",
         50: "#FAFAFA",
         75: "#F9F9F9",
         100: "#F5F5F5",
@@ -62,8 +69,10 @@ const config: Config = {
       white: {
         warm: "#F3E7DE",
         DEFAULT: "#FFF",
+        darckText: "rgba(243, 231, 222, 1)",
       },
       PrimaryColor: {
+        3: "rgba(242, 138, 93,0.03)",
         5: "rgba(242, 138, 93,0.05)",
         12: "rgba(242, 138, 93,0.12)",
         20: "rgba(242, 138, 93,0.2)",
@@ -76,6 +85,7 @@ const config: Config = {
         400: "#1A1A1A",
         500: "#252525",
         600: "#242424",
+        background: "rgba(17, 17, 17, 1)",
         diaphaneity60: "rgba(0,0,0,0.6)",
       },
       pink: {

@@ -17,7 +17,7 @@ const Sidebar = () => {
   // const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="relative pr-4 z-50 xl:pl-4">
+    <div className="relative pr-4 z-20 xl:pl-4">
       <form
         className="px-5 text-start bg-gray-75 rounded-r-3xl overflow-hidden"
         onChange={() => {}}>
