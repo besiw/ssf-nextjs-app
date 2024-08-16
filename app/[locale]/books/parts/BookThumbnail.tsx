@@ -49,9 +49,13 @@ const Books: React.FC<BooksProps> = ({
         <div className=" hidden md:block">
           <Heart />
         </div>
-        <Link href={path}>
-          <div className="clamp-2 font-bold">{name}</div>
-          <div className="font-medium">Author {author_ids[0]}</div>
+        <Link
+          href={path}
+          className="dark:text-white-darkText02 md:dark:text-white-darkText01">
+          <div className="clamp-2 font-bold dark:text-white-darkText01">
+            {name}
+          </div>
+          <div className="font-medium ">Author {author_ids[0]}</div>
           <div className="font-medium">{date_published.substring(0, 4)}</div>
         </Link>
       </div>

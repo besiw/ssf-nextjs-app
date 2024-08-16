@@ -16,7 +16,7 @@ const BooksFilter: React.FC<{
   };
 
   return (
-    <div className="relative flex justify-center md:justify-start items-center md:pl-5 md:py-8 dark:text-white-darckText">
+    <div className="relative flex justify-center md:justify-start items-center md:pl-5 md:py-8 dark:text-white-darkText01">
       <IconTextBotton
         onClick={handleClick}
         icon={filter}

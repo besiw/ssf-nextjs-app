@@ -69,7 +69,8 @@ const config: Config = {
       white: {
         warm: "#F3E7DE",
         DEFAULT: "#FFF",
-        darckText: "rgba(243, 231, 222, 1)",
+        darkText01: "rgba(243, 231, 222, 1)",
+        darkText02: " rgba(243, 231, 222, 0.7)",
       },
       PrimaryColor: {
         3: "rgba(242, 138, 93,0.03)",
@@ -77,6 +78,9 @@ const config: Config = {
         12: "rgba(242, 138, 93,0.12)",
         20: "rgba(242, 138, 93,0.2)",
         DEFAULT: "#F28A5D",
+        bgDark10: "rgba(244, 155, 117, 0.1)",
+        bgDark12: "rgba(242, 138, 93, 0.12)",
+        bgDark86: "rgba(244, 155, 117, 0.86)",
       },
       black: {
         100: "rgba(0,0,0,0.5)",
@@ -86,6 +90,8 @@ const config: Config = {
         500: "#252525",
         600: "#242424",
         background: "rgba(17, 17, 17, 1)",
+        blackground02: "rgba(29, 29, 29, 1)",
+        blackdiv: "rgba(38, 37, 37, 1)",
         diaphaneity60: "rgba(0,0,0,0.6)",
       },
       pink: {
