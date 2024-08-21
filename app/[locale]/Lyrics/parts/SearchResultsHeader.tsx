@@ -46,11 +46,10 @@ const SearchResultsHeader: React.FC<{
             text={stringTools("index")}
           />
         </div>
-        <div className="flex justify-between border-2  border-PrimaryColor rounded-3xl md:mr-3">
-          {" "}
+        <div className="flex justify-between border-2 dark:bg-PrimaryColor-bgDark15 border-PrimaryColor  rounded-3xl md:mr-3">
           <Image className=" mx-3 my-2" src={search} alt="" />
-          <input className=" outline-0" />
-          <Image className=" mx-2" src={xCircle} alt="" />
+          <input className=" outline-0  dark:bg-PrimaryColor-bgDark05" />
+          <Image className=" mx-2 " src={xCircle} alt="" />
         </div>
         <div className="hidden  md:flex">
           <CircleButton

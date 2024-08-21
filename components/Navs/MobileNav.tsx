@@ -48,7 +48,7 @@ function MobileNav() {
                 </div>
               </div>
               <div
-                className={`hidden md:flex p-4 pb-2 w-24 rounded-2xl  flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-12"}`}>
+                className={`hidden md:flex p-4 pb-2 w-24 rounded-2xl  flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-12 dark:md:bg-PrimaryColor-bgDark86"}`}>
                 <Image
                   src={i.icon}
                   width={"24"}

@@ -10,7 +10,7 @@ const LyricsTheme: React.FC<LyricsType> = ({ lyrics }) => {
             <div className="pb-3 w-60 pl-6">
               <p
                 key={i}
-                className={` text-lg text-PrimaryColor font-medium ${cormorant_Garamond.className}`}>
+                className={` text-lg text-PrimaryColor dark:text-PrimaryColor-bgDark86 font-medium ${cormorant_Garamond.className}`}>
                 {s.title}
               </p>
               <p className={`${cormorant.className} font-medium`}>

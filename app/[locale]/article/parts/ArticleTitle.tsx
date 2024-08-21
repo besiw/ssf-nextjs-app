@@ -36,7 +36,7 @@ const BooksFilter: React.FC<{
 
   return (
     <>
-      <div className=" hidden md:flex relative justify-center md:justify-start items-center md:pl-5 md:py-8">
+      <div className=" hidden md:flex relative justify-center md:justify-start items-center md:pl-5 md:py-8 dark:text-white-darkText01">
         <IconTextBotton
           onClick={handleClick}
           icon={filter}
@@ -45,7 +45,7 @@ const BooksFilter: React.FC<{
           text={stringTools("filter")}
         />
         <button
-          className={`rounded-full p-2 absolute left-5 md:hidden ${showFilter ? "bg-PrimaryColor" : "bg-PrimaryColor-12"}`}
+          className={`rounded-full p-2 absolute left-5 md:hidden ${showFilter ? "bg-PrimaryColor dark:bg-PrimaryColor-bgDark86" : "bg-PrimaryColor-12 dark:bg-PrimaryColor-bgDark10"}`}
           onClick={handleClick}>
           <Image
             width={"20"}
@@ -55,7 +55,8 @@ const BooksFilter: React.FC<{
           />
         </button>
         <div className="hidden md:block pl-6 h-5 border-l-2"></div>
-        <div className={`${inter.className} uppercase py-4`}>
+        <div
+          className={`${inter.className} uppercase py-4 dark:text-white-darkText01`}>
           {stringTools("article")}
         </div>
         <div ref={toolsRef} className=" flex absolute right-2 ">
@@ -101,7 +102,9 @@ const BooksFilter: React.FC<{
       <div className="flex md:hidden justify-between px-5 pt-3 pb-10">
         <div className="flex">
           <Image src={chevronleft} alt="" />
-          <div className="pl-6">{stringTools("article")}</div>
+          <div className="pl-6 dark:text-white-darkText01">
+            {stringTools("article")}
+          </div>
         </div>
         <div className="flex">
           {" "}

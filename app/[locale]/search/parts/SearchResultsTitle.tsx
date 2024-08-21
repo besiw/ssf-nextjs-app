@@ -22,7 +22,7 @@ export const SearchResultsTitle: React.FC<{
   return (
     <>
       <div className="flex px-5 justify-between items-center pt-2">
-        <div className="flex justify-between md:hidden">
+        <div className="flex justify-between md:hidden dark:text-white-darkText01">
           <Image src={chevronleft} alt="" className="" />
           <h2 className="pl-6">{stringTools("hiddentrasure")}</h2>
         </div>
@@ -35,7 +35,7 @@ export const SearchResultsTitle: React.FC<{
             text={stringTools("filter")}
           />
           <button
-            className={`rounded-full p-2 absolute left-5 md:hidden ${showFilter ? "bg-PrimaryColor" : "bg-PrimaryColor-12"}`}
+            className={`rounded-full p-2 absolute left-5 md:hidden ${showFilter ? "bg-PrimaryColor dark:bg-PrimaryColor-bgDark86" : "bg-PrimaryColor-12 dark:bg-PrimaryColor-bgDark10"}`}
             onClick={handleClick}>
             <Image
               width={"20"}
@@ -44,8 +44,9 @@ export const SearchResultsTitle: React.FC<{
               alt=""
             />
           </button>
-          <div className="hidden md:block pl-6 h-5 border-l-2"></div>
-          <div className={`${inter.className} uppercase py-4`}>
+          <div className="hidden md:block pl-6 h-5 border-l-2 "></div>
+          <div
+            className={`${inter.className} uppercase py-4 dark:text-white-darkText01`}>
             {stringNavigation("hidden-treasure")}
           </div>
         </div>

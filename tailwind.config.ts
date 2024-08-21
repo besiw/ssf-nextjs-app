@@ -65,11 +65,13 @@ const config: Config = {
         A200: "#AAAAAA",
         A400: "#303030",
         A700: "#616161",
+        bgdark: "rgba(38, 37, 37, 1)",
       },
       white: {
         warm: "#F3E7DE",
         DEFAULT: "#FFF",
         darkText01: "rgba(243, 231, 222, 1)",
+        darkText050: " rgba(243, 231, 222, 0.5)",
         darkText02: " rgba(243, 231, 222, 0.7)",
       },
       PrimaryColor: {
@@ -78,8 +80,10 @@ const config: Config = {
         12: "rgba(242, 138, 93,0.12)",
         20: "rgba(242, 138, 93,0.2)",
         DEFAULT: "#F28A5D",
+        bgDark05: "rgba(244, 155, 117, 0.00)",
         bgDark10: "rgba(244, 155, 117, 0.1)",
         bgDark12: "rgba(242, 138, 93, 0.12)",
+        bgDark15: "rgba(244, 155, 117, 0.15)",
         bgDark86: "rgba(244, 155, 117, 0.86)",
       },
       black: {

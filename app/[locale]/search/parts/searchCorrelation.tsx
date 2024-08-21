@@ -23,14 +23,14 @@ const searchCorrelation: React.FC<SearchResultsType> = ({
   const [openRelated, setOpenRelated] = useState(false);
   const [openBookmark, setOpenBookmark] = useState(false);
   return (
-    <div className="md:max-w-734 xl:max-w-548">
+    <div className="md:max-w-734 xl:max-w-548  dark:text-white-darkText01">
       {/* 搜索结果 */}
-      <div className="flex justify-between bg-PrimaryColor px-5 py-3 mt-4">
+      <div className="flex justify-between bg-PrimaryColor dark:bg-PrimaryColor-bgDark86 px-5 py-3 mt-4">
         <div className=" text-base text-white md:flex items-center">
           <div>
             <Image src={X} alt="" className="mr-6 hidden md:block" />
           </div>
-          <div>
+          <div className="dark:text-white-darkText01">
             <span className=" font-bold">‘{SearchResults}’ </span>
             <span>{stringTools("Found")}</span>
             <span> {SearchQuantity} </span>
@@ -75,8 +75,8 @@ const searchCorrelation: React.FC<SearchResultsType> = ({
 
         {/* 有关联 */}
         <div
-          className={` mt-5 md:mt-8 border-t-2 md:border-y-2 border-PrimaryColor-12 ${cormorant_Garamond.className}`}>
-          <h2 className=" text-PrimaryColor text-lg md:text-xl md:font-semibold pt-4">
+          className={` mt-5 md:mt-8 border-t-2 md:border-y-2 border-PrimaryColor-12 dark:border-PrimaryColor-bgDark86 ${cormorant_Garamond.className}`}>
+          <h2 className=" text-PrimaryColor dark:text-PrimaryColor-bgDark86 text-lg md:text-xl md:font-semibold pt-4">
             {stringTools("related")}
           </h2>
           <h4 className=" text-lg font-medium md:text-xl md:font-semibold">
