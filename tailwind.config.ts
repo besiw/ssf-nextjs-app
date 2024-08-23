@@ -93,6 +93,7 @@ const config: Config = {
         400: "#1A1A1A",
         500: "#252525",
         600: "#242424",
+        DEFAULT: "rgba(0,0,0)",
         background: "rgba(17, 17, 17, 1)",
         blackground02: "rgba(29, 29, 29, 1)",
         blackdiv: "rgba(38, 37, 37, 1)",
