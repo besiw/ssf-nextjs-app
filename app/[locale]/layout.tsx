@@ -6,6 +6,7 @@ import DesktopNav from '@/components/Navs/DesktopNav';
 import MobileNav from '@/components/Navs/MobileNav';
 import { inter } from '@/options/font';
 import { localesType } from '@/options/navigation';
+
 type Props = {
 	params: { locale: localesType };
 };
@@ -29,12 +30,12 @@ export default async function RootLayout({
 	const messages = await getMessages();
 	return (
 		<html lang={locale}>
-			<body className={`${inter.className} flex h-screen md:h-auto md:w-auto`}>
+			<body className={`${inter.className} flex`}>
 				<NextIntlClientProvider messages={messages}>
 					<DesktopNav />
 					<MobileNav />
 					<main
-						className={`flex-1 h-screen max-h-screen w-screen max-w-screen overflow-y-scroll pb-32`}
+						className={`flex-1 h-screen max-h-screen w-screen max-w-screen md:w-auto overflow-y-scroll`}
 					>
 						{children}
 					</main>
