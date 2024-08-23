@@ -15,9 +15,9 @@ export const TextBotton: React.FC<IconTextSmBtnProps> = ({
   isActive,
 }) => {
   return (
-    <button className="block md:hidden" onClick={onClick}>
+    <button className="block" onClick={onClick}>
       <div
-        className={`  mx-3 flex px-3 py-2 border-2 text-16px  border-PrimaryColor dark:border-PrimaryColor-bgDark10 rounded-2xl ${isActive ? "bg-PrimaryColor dark:bg-PrimaryColor-bgDark86" : "bg-white dark:bg-PrimaryColor-bgDark10"}`}>
+        className={`  mx-3 flex px-3 py-2 md:px-8 md:mx-0 border-2 text-16px  border-PrimaryColor dark:border-PrimaryColor-bgDark10 rounded-2xl ${isActive ? "bg-PrimaryColor dark:bg-PrimaryColor-bgDark86" : "bg-white dark:bg-PrimaryColor-bgDark10"}`}>
         <span
           className={`whitespace-nowrap ${
             isActive

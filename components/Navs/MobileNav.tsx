@@ -52,7 +52,7 @@ function MobileNav() {
             </div>
             <div
               className={`hidden md:flex p-4 pb-2 w-24 rounded-2xl  flex-col items-center justify-center ${isActive && "md:bg-PrimaryColor-12 dark:md:bg-PrimaryColor-bgDark86"}`}>
-              <Icon color={isDark ? "white" : isActive ? "primary" : "black"} />
+              <Icon color={isDark ? "white" : "black"} />
               <div className={`mt-2.5 h-10 leading-4 text-center text-sm`}>
                 {i.title}
               </div>
