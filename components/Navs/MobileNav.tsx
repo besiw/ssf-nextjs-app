@@ -1,13 +1,16 @@
 'use client';
 import React, { useRef } from 'react';
-import Image from 'next/image';
 import { Link, usePathname } from '@/options/navigation';
-import useNav, { navItemType } from './useNav';
+import useNav from './useNav';
 import { inter } from '@/options/font';
 import { useWindowDimensions } from '@/helpers/useWindowDimensions';
 import { useDimensions } from '@/helpers/useDimensions';
 
 function MobileNav() {
+	const isDark = window
+		? window.matchMedia('(prefers-color-scheme: dark)').matches
+		: false;
+
 	const currentPath = usePathname();
 	const nav = useNav();
 	const navRef = useRef<HTMLDivElement>(null);
@@ -34,6 +37,7 @@ function MobileNav() {
 		>
 			{nav.map((i, index) => {
 				const isActive = currentPath === i.path;
+				const Icon = i.svg;
 				return (
 					<Link
 						key={index}
@@ -43,13 +47,7 @@ function MobileNav() {
 						<div
 							className={`md:hidden w-16 h-16 rounded-2xl flex flex-col items-center justify-center ${isActive && 'md:bg-PrimaryColor'}`}
 						>
-							<Image
-								src={isActive ? i.activeIcon : i.icon}
-								width={'24'}
-								height={'24'}
-								alt={i.title}
-								className="mx-auto"
-							/>
+							<Icon color={isDark ? 'white' : isActive ? 'primary' : 'black'} />
 							<div
 								className={`mt-1 h-10 leading-4 text-center text-xs line-clamp-2 ${isActive ? 'text-PrimaryColor' : 'text-black-100'}`}
 							>
@@ -59,13 +57,7 @@ function MobileNav() {
 						<div
 							className={`hidden md:flex p-4 pb-2 w-24 rounded-2xl  flex-col items-center justify-center ${isActive && 'md:bg-PrimaryColor-12 dark:md:bg-PrimaryColor-bgDark86'}`}
 						>
-							<Image
-								src={i.icon}
-								width={'24'}
-								height={'24'}
-								alt={i.title}
-								className="mx-auto"
-							/>
+							<Icon color={isDark ? 'white' : isActive ? 'primary' : 'black'} />
 							<div className={`mt-2.5 h-10 leading-4 text-center text-sm`}>
 								{i.title}
 							</div>
