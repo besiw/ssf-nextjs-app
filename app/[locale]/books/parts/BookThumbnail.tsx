@@ -22,24 +22,24 @@ const Books: React.FC<BooksProps> = ({
 		<div
 			className={`flex flex-col mb-4 md:flex-row w-1/2 pr-4 ${width} ${cormorant_Garamond.className} `}
 		>
-			<div className="overflow-hidden rounded-lg relative bg-PrimaryColor">
+			<div
+				className="overflow-hidden rounded-lg relative bg-PrimaryColor w-full md:w-40 block"
+				style={{ aspectRatio: 165 / 220 }}
+			>
 				<div className=" left-2 bottom-2 w-8 h-8 bg-white flex justify-center items-center rounded-full md:hidden absolute dark:bg-black-background">
 					<Heart />
 				</div>
 
-				<Link
-					href={path}
-					style={{ aspectRatio: 165 / 220 }}
-					className="w-40 block"
-				>
+				<Link href={path}>
 					{cover_id ? (
 						<Image
-							width={165}
-							height={220}
-							style={{ aspectRatio: 165 / 220 }}
 							className="w-full"
 							src={cover}
 							alt={name ? name : ''}
+							width={0}
+							height={0}
+							sizes="100vw"
+							style={{ width: '100%', height: 'auto', aspectRatio: 165 / 220 }} // optional
 						/>
 					) : (
 						<div
