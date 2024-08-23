@@ -14,6 +14,10 @@
     "title": "Books"
   },
   "tools": {
+    "Change Picture": "Change Picture",
+    "Add Friends": "Add Friends",
+    "Settings": "Settings",
+    "EditProfile": "Edit Profile",
     "related": "Related",
     "Readmore": "Read more",
     "Found": "Found",

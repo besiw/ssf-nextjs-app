@@ -1,3 +1,8 @@
+import SettingsHeader from "./parts/settingsHeader";
 export default function Home() {
-	return <div>settings</div>;
+  return (
+    <div>
+      <SettingsHeader />
+    </div>
+  );
 }
