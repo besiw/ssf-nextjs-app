@@ -111,6 +111,9 @@ const config: Config = {
       yellow: {
         100: "#F5E179",
       },
+      red: {
+        100: "rgba(242, 93, 93, 1)",
+      },
     },
   },
   plugins: [],
