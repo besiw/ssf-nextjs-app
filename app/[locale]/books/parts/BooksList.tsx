@@ -8,7 +8,7 @@ type BooksListProps = {
 };
 const BooksList: React.FC<BooksListProps> = ({ isFilterOpen, books }) => {
 	return (
-		<div
+		<ol
 			className={`pl-4  md:pl-0 flex mx-auto flex-wrap z-0 ${isFilterOpen ? '' : ''}`}
 		>
 			{books.map((book, index) => {
@@ -20,7 +20,7 @@ const BooksList: React.FC<BooksListProps> = ({ isFilterOpen, books }) => {
 					/>
 				);
 			})}
-		</div>
+		</ol>
 	);
 };
 

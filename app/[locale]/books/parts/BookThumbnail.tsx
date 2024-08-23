@@ -18,12 +18,13 @@ const Books: React.FC<BooksProps> = ({
 }) => {
 	const path = `/book`;
 	const cover = `https://api.sssf.life/blobs/image/book/${cover_id}`;
+
 	return (
-		<div
+		<li
 			className={`flex flex-col mb-4 md:flex-row w-1/2 pr-4 ${width} ${cormorant_Garamond.className} `}
 		>
 			<div
-				className="overflow-hidden rounded-lg relative bg-PrimaryColor w-full md:w-40 block"
+				className="overflow-hidden rounded-lg relative w-full md:w-40 block"
 				style={{ aspectRatio: 165 / 220 }}
 			>
 				<div className=" left-2 bottom-2 w-8 h-8 bg-white flex justify-center items-center rounded-full md:hidden absolute dark:bg-black-background">
@@ -43,7 +44,7 @@ const Books: React.FC<BooksProps> = ({
 						/>
 					) : (
 						<div
-							className={`pt-8 px-5 clamp-2 font-bold text-white text-center ${inter.className}`}
+							className={`pt-8 px-5 clamp-2 font-bold text-white text-center bg-PrimaryColor h-full ${inter.className}`}
 						>
 							{name}
 						</div>
@@ -65,7 +66,7 @@ const Books: React.FC<BooksProps> = ({
 					<div className="font-medium">{date_published.substring(0, 4)}</div>
 				</Link>
 			</div>
-		</div>
+		</li>
 	);
 };
 export default Books;
